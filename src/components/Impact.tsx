@@ -25,7 +25,10 @@ const StatItem: React.FC<StatItemProps> = ({
   const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible) {
+      setCount(0);
+      return;
+    }
     
     let startTime: number | null = null;
     const duration = 2000;
@@ -49,18 +52,18 @@ const StatItem: React.FC<StatItemProps> = ({
 
   return (
     <div className="stat-item flex flex-col gap-6">
-      <div className="text-[80px] lg:text-[120px] font-medium tracking-heading text-brand-primary leading-none flex items-baseline">
+      <div className="text-[80px] lg:text-[120px] font-medium tracking-heading text-sage leading-none flex items-baseline">
         {prefix && <span>{prefix}</span>}
         <span>{count.toFixed(decimals)}</span>
         {suffix && <span>{suffix}</span>}
       </div>
-      <div className="h-px w-full bg-border-primary relative">
+      <div className="h-px w-full bg-border-muted relative">
         <div className="absolute -top-[8px] -left-[8px]">
           <PlusIcon />
         </div>
       </div>
-      <p className="text-xl font-medium text-text-primary">{title}</p>
-      <p className="text-text-secondary">{description}</p>
+      <p className="text-xl font-bold text-ink">{title}</p>
+      <p className="text-ink/70">{description}</p>
     </div>
   );
 };
@@ -81,6 +84,7 @@ export const Impact: React.FC = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top 80%',
+          toggleActions: 'restart reverse restart reverse',
         }
       }
     );
@@ -96,6 +100,7 @@ export const Impact: React.FC = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top 70%',
+          toggleActions: 'restart reverse restart reverse',
         }
       }
     );
@@ -107,9 +112,8 @@ export const Impact: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            if (sectionRef.current) {
-              observer.unobserve(sectionRef.current);
-            }
+          } else {
+            setIsVisible(false);
           }
         });
       },
@@ -124,13 +128,13 @@ export const Impact: React.FC = () => {
   }, []);
 
   return (
-    <section id="impact" ref={sectionRef} className="max-w-[1820px] mx-auto px-6 md:px-20 py-24 lg:py-32 border-b border-border-primary">
+    <section id="impact" ref={sectionRef} className="max-w-[1820px] mx-auto px-6 md:px-20 py-24 lg:py-32 border-b border-border-muted bg-bg-cream">
       <div className="flex flex-col gap-20">
         <div ref={headerRef} className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-          <h2 className="text-[38px] md:text-[60px] font-medium leading-heading tracking-heading text-text-primary">
+          <h2 className="text-[38px] md:text-[60px] font-medium leading-heading tracking-heading text-ink">
             Measured Outcomes.
           </h2>
-          <p className="text-text-secondary text-[20px] max-w-md">
+          <p className="text-ink/70 text-[20px] max-w-md">
             We quantify excellence. Our work is judged by the structural strength and revenue impact it generates.
           </p>
         </div>

@@ -7,13 +7,26 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-primary': 'rgb(54, 80, 63)',
-        'brand-accent': 'rgb(254, 248, 197)',
-        'neutral-background': 'rgb(247, 247, 247)',
-        'text-primary': 'rgb(0, 0, 0)',
-        'text-secondary': 'rgb(107, 112, 118)',
-        'border-primary': 'rgb(205, 207, 208)',
-        'plus-color': 'rgb(152, 153, 155)',
+        'brand-amber': '#FEBD59',
+        'forest': '#1E3A2E',
+        'rust': '#C9782E',
+        'sage': '#4C7A5D',
+        'bg-cream': '#F7F4EE',
+        'cream': '#F7F4EE',
+        'ink': '#22221F',
+        'border-muted': '#D8D3C7',
+
+        // Semantic Aliases
+        'brand-primary': '#1E3A2E',
+        'brand-secondary': '#1E3A2E',
+        'brand-accent': '#FEBD59',
+        'brand-sage': '#4C7A5D',
+        'neutral-background': '#F7F4EE',
+        'bg-secondary': '#F7F4EE',
+        'text-primary': '#22221F',
+        'text-secondary': 'rgba(34, 34, 31, 0.7)',
+        'border-primary': '#D8D3C7',
+        'plus-color': '#C9782E',
       },
       fontFamily: {
         'primary': ['Inter Tight', 'Inter', 'sans-serif'],

@@ -13,6 +13,7 @@ export const CTASection: React.FC = () => {
       scrollTrigger: {
         trigger: containerRef.current,
         start: 'top 80%',
+        toggleActions: 'restart reverse restart reverse',
       }
     });
 
@@ -29,31 +30,31 @@ export const CTASection: React.FC = () => {
 
   return (
     <section ref={containerRef} id="contact" className="max-w-[1820px] mx-auto px-6 md:px-20 py-24 lg:py-40 relative overflow-visible">
-      <div className="bg-brand-primary rounded-custom p-10 md:p-24 flex flex-col items-center text-center gap-12 relative overflow-hidden">
+      <div className="bg-forest rounded-custom p-10 md:p-24 flex flex-col items-center text-center gap-12 relative overflow-hidden shadow-2xl">
         {/* Decorative background element */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="w-full h-full border-[20px] border-brand-accent rounded-custom scale-110 rotate-3"></div>
+          <div className="w-full h-full border-[20px] border-brand-amber rounded-custom scale-110 rotate-3"></div>
         </div>
 
         <div ref={contentRef} className="flex flex-col gap-6 max-w-4xl relative z-10">
-          <h2 className="text-[38px] md:text-[68px] font-medium leading-heading tracking-heading text-brand-accent">
+          <h2 className="text-[38px] md:text-[68px] font-medium leading-heading tracking-heading text-bg-cream">
             Ready to Build a High-Efficiency Growth Engine?
           </h2>
-          <p className="text-[20px] md:text-[24px] text-brand-accent opacity-80 max-w-2xl mx-auto">
-            Partner with Servexa to reclaim your bandwidth and dominate your sector with architectural precision.
+          <p className="text-[20px] md:text-[24px] text-bg-cream/80 max-w-2xl mx-auto">
+            Partner with StratedgeX to reclaim your bandwidth and dominate your sector with architectural precision.
           </p>
         </div>
 
         <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto relative z-10">
           <a 
-            href="mailto:partners@servexa.io" 
-            className="bg-brand-accent text-brand-primary px-10 h-16 rounded-custom flex items-center justify-center text-xl font-bold tracking-cta hover:bg-white transition-all duration-300 shadow-lg"
+            href="mailto:partners@stratedgex.io" 
+            className="bg-brand-amber text-forest px-10 h-16 rounded-custom flex items-center justify-center text-xl font-bold tracking-cta hover:bg-white transition-all duration-300 shadow-lg"
           >
             Inquire for Partnership
           </a>
           <a 
             href="#strategy" 
-            className="bg-transparent border border-brand-accent text-brand-accent px-10 h-16 rounded-custom flex items-center justify-center text-xl font-bold tracking-cta hover:bg-brand-accent hover:text-brand-primary transition-all duration-300"
+            className="bg-transparent border border-brand-amber text-bg-cream px-10 h-16 rounded-custom flex items-center justify-center text-xl font-bold tracking-cta hover:bg-brand-amber hover:text-forest transition-all duration-300"
           >
             View Methodology
           </a>

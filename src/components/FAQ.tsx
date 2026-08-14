@@ -10,7 +10,7 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "How does Servexa integrate with our internal marketing team?",
+    question: "How does StratedgeX integrate with our internal marketing team?",
     answer: "We act as a high-tier extension of your leadership. Instead of replacing your team, we manage the complex strategic layers and technical ecosystems that often cause bottlenecks, allowing your internal staff to focus on high-level innovation and brand vision."
   },
   {
@@ -43,6 +43,7 @@ export const FAQ: React.FC = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 80%',
+          toggleActions: 'restart reverse restart reverse',
         }
       }
     );
@@ -58,6 +59,7 @@ export const FAQ: React.FC = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 70%',
+          toggleActions: 'restart reverse restart reverse',
         }
       }
     );
@@ -68,24 +70,24 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section ref={containerRef} id="faq" className="max-w-[1820px] mx-auto px-6 md:px-20 py-24 lg:py-32 border-b border-border-primary relative">
+    <section ref={containerRef} id="faq" className="max-w-[1820px] mx-auto px-6 md:px-20 py-24 lg:py-32 border-b border-border-muted relative bg-[#EEF2F5]">
       <div className="grid grid-cols-1 lg:grid-cols-[400px,1fr] gap-16 lg:gap-24">
         {/* FAQ Header */}
         <div ref={headerRef} className="flex flex-col gap-8">
-          <div className="flex items-center gap-4 text-brand-primary">
-            <span className="w-12 h-px bg-brand-primary"></span>
+          <div className="flex items-center gap-4 text-rust">
+            <span className="w-12 h-px bg-rust"></span>
             <span className="uppercase font-semibold tracking-widest text-sm">Inquiries</span>
           </div>
-          <h2 className="text-[38px] md:text-[60px] font-medium leading-heading tracking-heading text-text-primary">
+          <h2 className="text-[38px] md:text-[60px] font-medium leading-heading tracking-heading text-ink">
             Common Questions.
           </h2>
-          <p className="text-text-secondary text-lg leading-relaxed">
+          <p className="text-ink/70 text-lg leading-relaxed">
             Everything you need to know about our methodology, engagement models, and strategic integration.
           </p>
           <div className="pt-8">
             <a 
               href="#contact" 
-              className="inline-flex items-center gap-2 text-brand-primary font-bold uppercase tracking-widest border-b-2 border-brand-primary pb-1 hover:text-text-primary hover:border-text-primary transition-all"
+              className="inline-flex items-center gap-2 text-rust font-bold uppercase tracking-widest border-b-2 border-rust pb-1 hover:text-forest hover:border-forest transition-all"
             >
               Still curious? Contact us
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -94,36 +96,36 @@ export const FAQ: React.FC = () => {
         </div>
 
         {/* FAQ Accordion */}
-        <div className="flex flex-col border-t border-border-primary">
+        <div className="flex flex-col border-t border-border-muted">
           {faqData.map((item, index) => {
             const isOpen = openIndex === index;
             return (
               <div 
                 key={index} 
-                className={`faq-item group border-b border-border-primary overflow-hidden transition-all duration-300 ${isOpen ? 'faq-open' : ''}`}
+                className={`faq-item group border-b border-border-muted overflow-hidden transition-all duration-300 ${isOpen ? 'faq-open bg-border-muted/30' : 'hover:bg-border-muted/20'}`}
               >
                 <button 
                   onClick={() => toggleIndex(index)}
-                  className="faq-trigger w-full flex items-center justify-between py-8 text-left focus:outline-none"
+                  className="faq-trigger w-full flex items-center justify-between py-8 px-4 text-left focus:outline-none"
                 >
-                  <span className="text-xl md:text-2xl font-bold text-text-primary tracking-tight pr-8">
+                  <span className="text-xl md:text-2xl font-bold text-ink tracking-tight pr-8">
                     {item.question}
                   </span>
                   <span 
-                    className="material-symbols-outlined text-brand-primary transition-transform duration-300 faq-icon"
+                    className="material-symbols-outlined text-rust transition-transform duration-300 faq-icon"
                     style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
                   >
                     {isOpen ? 'remove' : 'add'}
                   </span>
                 </button>
                 <div 
-                  className="faq-content transition-all duration-500 ease-in-out overflow-hidden"
+                  className="faq-content transition-all duration-500 ease-in-out overflow-hidden px-4"
                   style={{
                     maxHeight: isOpen ? '1000px' : '0px',
                     opacity: isOpen ? 1 : 0
                   }}
                 >
-                  <p className="text-text-secondary text-lg leading-relaxed pb-8 max-w-3xl">
+                  <p className="text-ink/70 text-lg leading-relaxed pb-8 max-w-3xl">
                     {item.answer}
                   </p>
                 </div>

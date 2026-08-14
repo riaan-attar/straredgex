@@ -2,9 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-brand-amber: #FEBD59;   /* primary CTAs, small accents, underlines */
+  --color-forest: #1E3A2E;        /* dark sections: header/footer, dark CTA bands */
+  --color-rust: #C9782E;          /* links, hover states, icon strokes */
+  --color-sage: #4C7A5D;          /* stat numbers, success/positive indicators */
+  --color-bg: #F7F4EE;            /* page background, replaces pure white */
+  --color-text: #22221F;          /* body copy and headings, replaces pure black */
+  --color-border: #D8D3C7;        /* dividers, card outlines, hairlines */
+}
+
 @layer base {
   body {
-    @apply m-0 p-0 font-primary bg-neutral-background text-text-primary;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
   }
 }
 
@@ -20,7 +34,7 @@
   left: 0;
   width: 15px;
   height: 3px;
-  background: rgb(152, 153, 155);
+  background: var(--color-rust);
 }
 .plus-icon::after {
   content: '';
@@ -29,16 +43,16 @@
   left: 6px;
   width: 3px;
   height: 15px;
-  background: rgb(152, 153, 155);
+  background: var(--color-rust);
 }
 
 #contact .plus-icon::before,
 #contact .plus-icon::after {
-  background: rgb(254, 248, 197);
+  background: var(--color-brand-amber);
 }
 
 .border-grid {
-  border: 1px solid rgb(205, 207, 208);
+  border: 1px solid var(--color-border);
 }
 
 .faq-content {
