@@ -65,12 +65,12 @@ export const Strategy: React.FC = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
               <div className="flex flex-col gap-4">
-                <h4 className="text-xl font-bold text-ink uppercase tracking-tight">01. Structural Audit</h4>
-                <p className="text-ink/70">A deep-dive analysis of your current marketing infrastructure and competitive friction points.</p>
+                <h4 className="text-xl font-bold text-ink uppercase tracking-tight">01. Audit & Architecture</h4>
+                <p className="text-ink/70">Analyzing current ad accounts and identifying landing page friction to build a scalable foundation.</p>
               </div>
               <div className="flex flex-col gap-4">
-                <h4 className="text-xl font-bold text-ink uppercase tracking-tight">02. Growth Blueprint</h4>
-                <p className="text-ink/70">Designing a scalable acquisition engine that prioritizes unit economics and long-term LTV.</p>
+                <h4 className="text-xl font-bold text-ink uppercase tracking-tight">02. Infrastructure Build</h4>
+                <p className="text-ink/70">Developing custom, high-speed landing pages and structuring aggressive ad campaigns on Google and Meta.</p>
               </div>
             </div>
           </div>

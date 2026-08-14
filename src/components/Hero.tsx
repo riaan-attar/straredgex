@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import PlusIcon from './PlusIcon';
+import InteractiveBulb from './InteractiveBulb';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -57,10 +58,10 @@ export const Hero: React.FC = () => {
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-rust">Performance Engine</span>
             </div>
             <h1 ref={headlineRef} className="text-[42px] sm:text-[54px] md:text-[74px] font-medium leading-[1.1] md:leading-heading tracking-[-1.5px] md:tracking-heading text-ink">
-              Redefining Efficiency for <span className="relative inline-block">Global Leaders<span className="absolute bottom-1 left-0 w-full h-3 bg-brand-amber/40 -z-10 rounded-sm"></span></span>.
+              Scaling Revenue with <span className="relative inline-block">Precision Performance<span className="absolute bottom-1 left-0 w-full h-3 bg-brand-amber/40 -z-10 rounded-sm"></span></span> Marketing.
             </h1>
             <p ref={subtextRef} className="text-[18px] md:text-[22px] leading-relaxed md:leading-body tracking-subheading text-ink/70 max-w-[700px]">
-              StratedgeX provides high-tier marketing support, managing your complex strategy and digital ecosystems so your core team can focus on innovation.
+              StratedgeX is a data-driven performance agency specializing in Google Ads, Meta Ads, and high-converting landing pages to engineer predictable growth.
             </p>
           </div>
 
@@ -69,7 +70,7 @@ export const Hero: React.FC = () => {
               href="#contact" 
               className="w-full sm:w-auto bg-brand-amber text-forest hover:bg-forest hover:text-brand-amber border border-border-muted rounded-custom flex items-center justify-between sm:justify-start gap-[26px] overflow-hidden group h-[59px] pr-0 transition-all duration-300 shadow-md font-bold"
             >
-              <span className="pl-[26px] text-[16px] md:text-[18px] tracking-cta font-bold">Elevate Your Strategy</span>
+              <span className="pl-[26px] text-[16px] md:text-[18px] tracking-cta font-bold">Scale Your Revenue</span>
               <div className="flex items-center h-full">
                 <div className="w-px h-full bg-forest opacity-20"></div>
                 <div className="px-[16px]">
@@ -125,18 +126,10 @@ export const Hero: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Testimonial Text */}
-                <p className="text-[22px] md:text-[26px] font-medium leading-tight md:leading-card tracking-card-text text-bg-cream">
-                  "Efficiency is our obsession. We help the world's most ambitious firms reclaim <span className="text-brand-amber font-bold">40%</span> of their strategic bandwidth."
-                </p>
-              </div>
-
-              {/* Footer Link */}
-              <div className="flex">
-                <a href="#strategy" className="flex items-center gap-[10px] group">
-                  <span className="text-[20px] font-medium leading-[26px] tracking-[-0.8px] text-brand-amber group-hover:text-white transition-colors">Explore Our Methodology</span>
-                  <span className="material-symbols-outlined text-brand-amber text-[24px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all">north_east</span>
-                </a>
+                {/* Interactive 3D Bulb */}
+                <div className="w-full mt-4 -mb-8">
+                  <InteractiveBulb />
+                </div>
               </div>
             </div>
           </div>

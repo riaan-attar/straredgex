@@ -61,24 +61,24 @@ export const Capabilities: React.FC = () => {
 
   const capabilities = [
     {
-      icon: "insights",
-      title: "Market Intelligence",
-      description: "Advanced sentiment analysis and competitive displacement strategies based on hard data."
+      icon: "search",
+      title: "Google Ads",
+      description: "Search intent capture and high-ROI campaign structuring to dominate the bottom of the funnel."
     },
     {
-      icon: "architecture",
-      title: "Brand Engineering",
-      description: "Developing institutional-grade visual languages and high-authority positioning systems."
+      icon: "campaign",
+      title: "Meta Ads",
+      description: "Creative-led social acquisition strategies designed to scale customer acquisition costs profitably."
     },
     {
-      icon: "ads_click",
-      title: "Performance Media",
-      description: "Surgical-grade paid acquisition focused on ROAS and scalable CAC across global markets."
+      icon: "web",
+      title: "Landing Page Development",
+      description: "Custom, high-speed landing pages engineered specifically for maximum conversion rates."
     },
     {
-      icon: "auto_graph",
-      title: "Revenue Ops",
-      description: "Optimizing the marketing-to-sales handoff with automated, high-precision funnel management."
+      icon: "trending_up",
+      title: "Conversion Rate Optimization",
+      description: "Continuous A/B testing and funnel refinement to extract maximum value from every click."
     }
   ];
 

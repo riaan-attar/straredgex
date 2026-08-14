@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PlusIcon from './PlusIcon';
+import LogoIcon from './LogoIcon';
 
 type MegaMenuKey = 'strategy' | 'capabilities' | null;
 
@@ -16,19 +17,19 @@ interface MenuContent {
 const menuData: Record<'strategy' | 'capabilities', MenuContent> = {
   strategy: {
     title: "Our Strategy",
-    desc: "Architectural precision in marketing. We engineer systems, not just campaigns.",
+    desc: "Architectural precision in performance marketing. We engineer high-converting systems.",
     img: "https://images.unsplash.com/photo-1622737133809-d95047b9e673?ixid=M3w4NjU0NDF8MHwxfHNlYXJjaHwxfHxNaW5pbWFsaXN0fGVufDB8fHx8MTc3NDI0Mjc2Mnww&ixlib=rb-4.1.0&w=800&h=450&fit=crop&fm=jpg&q=80",
     c1t: "Methodology",
-    c1l: ["Structural Audit", "Growth Blueprints", "Market Position Audit", "Friction Analysis"],
+    c1l: ["Ad Strategy", "Funnel Design", "Budget Scaling", "Audience Targeting"],
     c2t: "Insights",
     c2l: ["Case Studies", "Strategic Whitepapers", "System Design Theory", "Success Metrics"]
   },
   capabilities: {
     title: "Core Capabilities",
-    desc: "Specialized divisions operating with surgical precision to solve complex bottlenecks.",
+    desc: "Specialized divisions operating with surgical precision to scale your revenue.",
     img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?ixid=M3w4NjU0NDF8MHwxfHNlYXJjaHwxfHxDbGVhbnxlbnwwfHx8fDE3NzQyNDI3NjJ8MA&ixlib=rb-4.1.0&w=800&h=450&fit=crop&fm=jpg&q=80",
     c1t: "Solutions",
-    c1l: ["Market Intelligence", "Brand Engineering", "Performance Media", "Revenue Ops"],
+    c1l: ["Google Ads Management", "Meta Ads Management", "Landing Page Dev", "Creative Testing"],
     c2t: "Integration",
     c2l: ["API Connectivity", "CRM Optimization", "Funnel Automation", "Data Visualization"]
   }
@@ -48,7 +49,7 @@ export const Navbar: React.FC = () => {
           {/* Brand Section */}
           <div className="flex items-center h-full px-4 md:px-8 border-r border-border-muted shrink-0 relative">
             <a href="/" className="flex items-center gap-2 group">
-              <span className="material-symbols-outlined text-brand-amber text-2xl group-hover:scale-110 transition-transform">token</span>
+              <LogoIcon className="w-8 h-8 text-brand-amber group-hover:scale-110 transition-transform" />
               <span className="text-base md:text-lg font-bold tracking-[0.2em] uppercase italic text-forest">StratedgeX</span>
             </a>
             <div className="absolute -bottom-[8px] -left-[8px]">
@@ -211,7 +212,7 @@ export const Navbar: React.FC = () => {
       <div className={`fixed inset-0 bg-bg-cream z-[60] flex flex-col p-10 transition-transform duration-300 lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex justify-between items-center mb-12">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-brand-amber text-3xl">token</span>
+            <LogoIcon className="w-10 h-10 text-brand-amber" />
             <span className="text-2xl font-bold tracking-tight text-forest uppercase italic">StratedgeX</span>
           </div>
           <button 

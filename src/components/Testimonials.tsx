@@ -15,42 +15,42 @@ const testimonialsData: Testimonial[] = [
   {
     logo: "NEXUS.CO",
     rating: "4.9",
-    quote: "The strategic support from StratedgeX has been phenomenal. We reclaimed over 45% of our execution bandwidth and scaled custom operations smoothly.",
+    quote: "StratedgeX completely transformed our Meta Ads. Combined with their custom landing pages, our acquisition costs dropped by 45% in the first month.",
     name: "Kate Davis",
     tiltClass: "hover:-rotate-6 hover:scale-[1.05]"
   },
   {
     logo: "ORBITAL",
     rating: "4.8",
-    quote: "Their structured audit revealed major efficiency gaps. The engineered growth blueprint has significantly lowered our customer acquisition costs.",
+    quote: "Their Google Ads management is unmatched. The high-converting landing pages they built helped us achieve a 3.5x ROAS at scale.",
     name: "Martin Kazlauskas",
     tiltClass: "hover:rotate-3 hover:scale-[1.05]"
   },
   {
     logo: "QUANTUM",
     rating: "4.9",
-    quote: "StratedgeX represents the highest standards of professional execution. An indispensable partner for anyone serious about revenue operations.",
+    quote: "StratedgeX represents the highest standards of performance marketing. An indispensable partner for anyone serious about revenue growth.",
     name: "Sanjay Sharma",
     tiltClass: "hover:-rotate-3 hover:scale-[1.05]"
   },
   {
     logo: "VANTAGE",
     rating: "4.7",
-    quote: "High-tier performance media at its best. They don't run generic campaigns; they construct high-precision marketing systems that scale.",
+    quote: "High-tier performance media at its best. They don't run generic campaigns; they construct high-precision conversion systems that scale rapidly.",
     name: "Tawanna Afumba",
     tiltClass: "hover:rotate-6 hover:scale-[1.05]"
   },
   {
     logo: "EQUINOX",
     rating: "4.9",
-    quote: "Architectural precision is the perfect description. Their sentiment audits transformed how we address brand positioning globally.",
+    quote: "Their landing page development team is incredible. Our conversion rates doubled within weeks of launching the new funnel.",
     name: "Larry King",
     tiltClass: "hover:-rotate-6 hover:scale-[1.05]"
   },
   {
     logo: "ZENITH",
     rating: "4.8",
-    quote: "Automated funnels built by their team have streamlined our entire sales integration. Exceptional communication and unmatched speed.",
+    quote: "Aggressive A/B testing and surgical ad buying by StratedgeX have allowed us to scale our ad spend profitably month over month.",
     name: "Fatima Mohamed",
     tiltClass: "hover:rotate-3 hover:scale-[1.05]"
   }
@@ -108,7 +108,7 @@ export const Testimonials: React.FC = () => {
             </h2>
           </div>
           <p className="text-ink/70 text-[20px] max-w-md">
-            Hear how StratedgeX helps executive teams streamline their strategic operations and accelerate market reach.
+            Hear how StratedgeX helps aggressive brands scale their revenue through high-converting ads and landing pages.
           </p>
         </div>
 

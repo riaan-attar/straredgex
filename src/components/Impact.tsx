@@ -135,32 +135,32 @@ export const Impact: React.FC = () => {
             Measured Outcomes.
           </h2>
           <p className="text-ink/70 text-[20px] max-w-md">
-            We quantify excellence. Our work is judged by the structural strength and revenue impact it generates.
+            We quantify excellence. Our work is judged by the revenue impact and reduced acquisition costs it generates.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24">
           <StatItem 
-            prefix="+"
+            prefix="$"
+            target={50}
+            suffix="M+"
+            title="Ad Spend Managed"
+            description="Aggressively optimized across Google and Meta platforms."
+            isVisible={isVisible}
+          />
+          <StatItem 
             target={40}
             suffix="%"
-            title="Operational Bandwidth Recovered"
-            description="Average efficiency gain for client internal teams after 6 months."
+            title="Average CPA Reduction"
+            description="Our custom landing pages drastically reduce cost per acquisition."
             isVisible={isVisible}
           />
           <StatItem 
             target={3.5}
             decimals={1}
             suffix="x"
-            title="Average Marketing ROI"
+            title="Average ROAS"
             description="Measured across our top-tier performance portfolio."
-            isVisible={isVisible}
-          />
-          <StatItem 
-            target={12}
-            suffix="+"
-            title="Global Markets Entered"
-            description="Successful cross-border expansions orchestrated this fiscal year."
             isVisible={isVisible}
           />
         </div>

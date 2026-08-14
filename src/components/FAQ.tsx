@@ -10,20 +10,20 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "How does StratedgeX integrate with our internal marketing team?",
-    answer: "We act as a high-tier extension of your leadership. Instead of replacing your team, we manage the complex strategic layers and technical ecosystems that often cause bottlenecks, allowing your internal staff to focus on high-level innovation and brand vision."
+    question: "What ad budget do you recommend starting with?",
+    answer: "We typically partner with brands spending a minimum of $10,000/month across Google and Meta. This provides enough data velocity for our testing protocols to quickly identify profitable scaling opportunities."
   },
   {
-    question: "What exactly does a 'Structural Audit' involve?",
-    answer: "Our audit is a 30-day deep dive into your marketing infrastructure. We analyze your tech stack efficiency, competitive displacement vectors, data hygiene, and funnel friction. The result is a comprehensive report and a prioritized 12-month growth blueprint."
+    question: "Do you build the landing pages from scratch?",
+    answer: "Yes. Our engineering and design teams build custom, high-speed landing pages specifically tailored to the ad creatives and search intent, ensuring maximum conversion rates from day one."
   },
   {
-    question: "Do you work with startups or exclusively enterprise firms?",
-    answer: "While our systems are engineered for enterprise scale, we partner with Series B+ startups that have achieved product-market fit and are ready to professionalize their marketing operations. We seek partners who value architectural precision over quick-fix tactics."
+    question: "How quickly can we launch our Google and Meta campaigns?",
+    answer: "Our standard onboarding to launch timeline is 14-21 days. This includes a full structural audit of your current ad accounts, the development of the new landing pages, and the engineering of the new campaign architecture."
   },
   {
-    question: "How do you measure success and ROI?",
-    answer: "Success is quantified through two primary lenses: Efficiency Gains (recovered bandwidth and reduced CAC) and Strategic Growth (incremental revenue and market share). We establish custom North Star metrics for every engagement, tracked via real-time dashboards."
+    question: "How do you track conversions across platforms?",
+    answer: "We implement advanced server-side tracking (CAPI) and robust analytics infrastructure to ensure every conversion is accurately attributed, allowing us to scale your ROAS with absolute precision."
   }
 ];
 

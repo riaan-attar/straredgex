@@ -1,5 +1,6 @@
 import React from 'react';
 import PlusIcon from './PlusIcon';
+import LogoIcon from './LogoIcon';
 
 export const Footer: React.FC = () => {
   return (
@@ -9,11 +10,11 @@ export const Footer: React.FC = () => {
           {/* Brand Info */}
           <div className="flex flex-col gap-8">
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-brand-amber text-3xl">token</span>
+              <LogoIcon className="w-10 h-10 text-brand-amber" />
               <span className="text-2xl font-bold tracking-tight text-white uppercase italic">StratedgeX</span>
             </div>
             <p className="text-bg-cream/80 text-[18px] leading-relaxed max-w-xs">
-              Engineering high-tier marketing strategies for the world's most ambitious enterprises.
+              Engineering high-converting performance marketing systems for ambitious brands.
             </p>
           </div>
 
@@ -42,7 +43,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col gap-6">
             <h4 className="text-white font-semibold text-lg uppercase tracking-wider">Newsletter</h4>
             <div className="flex flex-col gap-4">
-              <p className="text-bg-cream/80 text-sm">Get our monthly digest on operational excellence.</p>
+              <p className="text-bg-cream/80 text-sm">Get our monthly digest on performance marketing tactics.</p>
               <form onSubmit={(e) => e.preventDefault()} className="flex items-center gap-2">
                 <input 
                   type="email" 
@@ -59,7 +60,7 @@ export const Footer: React.FC = () => {
         
         {/* Footer Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-border-muted/30 gap-6">
-          <p className="text-bg-cream/70 text-sm">© {new Date().getFullYear()} StratedgeX Marketing Consultants. All rights reserved.</p>
+          <p className="text-bg-cream/70 text-sm">© {new Date().getFullYear()} StratedgeX Performance Agency. All rights reserved.</p>
           <div className="flex gap-8 text-sm text-bg-cream/70">
             <a href="#" className="hover:text-brand-amber transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-brand-amber transition-colors">Terms of Service</a>

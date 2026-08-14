@@ -38,10 +38,10 @@ export const CTASection: React.FC = () => {
 
         <div ref={contentRef} className="flex flex-col gap-6 max-w-4xl relative z-10">
           <h2 className="text-[38px] md:text-[68px] font-medium leading-heading tracking-heading text-bg-cream">
-            Ready to Build a High-Efficiency Growth Engine?
+            Ready to Build a High-Converting Growth Engine?
           </h2>
           <p className="text-[20px] md:text-[24px] text-bg-cream/80 max-w-2xl mx-auto">
-            Partner with StratedgeX to reclaim your bandwidth and dominate your sector with architectural precision.
+            Partner with StratedgeX to scale your paid acquisition and dominate your market.
           </p>
         </div>
 
