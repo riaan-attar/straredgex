@@ -92,9 +92,9 @@ export const Capabilities: React.FC = () => {
       description: "Custom, high-speed landing pages engineered specifically for maximum conversion rates."
     },
     {
-      icon: "trending_up",
-      title: "Conversion Rate Optimization",
-      description: "Continuous A/B testing and funnel refinement to extract maximum value from every click."
+      icon: "mail",
+      title: "Email Marketing",
+      description: "High-converting lifecycle flows and newsletter strategies designed to maximize customer lifetime value."
     }
   ];
 

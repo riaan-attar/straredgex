@@ -110,7 +110,7 @@ export const Navbar: React.FC = () => {
           {/* Action Section */}
           <div className="flex items-center h-full shrink-0 relative">
             <a href="#contact" className="hidden xl:flex items-center px-8 h-full text-[13px] font-bold uppercase tracking-[0.1em] text-ink border-l border-border-muted hover:text-rust transition-colors">
-              Partner Portal
+              CASE STUDY
             </a>
             
             <div className="h-full hidden sm:flex items-center group cursor-pointer overflow-hidden border-l border-border-muted min-w-0 md:min-w-[180px]">
