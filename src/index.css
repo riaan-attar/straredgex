@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 p-0 font-primary bg-neutral-background text-text-primary;
+  }
+}
+
+.plus-icon {
+  position: relative;
+  width: 15px;
+  height: 15px;
+}
+.plus-icon::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 15px;
+  height: 3px;
+  background: rgb(152, 153, 155);
+}
+.plus-icon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 6px;
+  width: 3px;
+  height: 15px;
+  background: rgb(152, 153, 155);
+}
+
+#contact .plus-icon::before,
+#contact .plus-icon::after {
+  background: rgb(254, 248, 197);
+}
+
+.border-grid {
+  border: 1px solid rgb(205, 207, 208);
+}
+
+.faq-content {
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease-out;
+}
+.faq-item.faq-open .faq-content {
+  max-height: 1000px;
+  transition: max-height 0.5s cubic-bezier(1, 0, 1, 0), opacity 0.5s ease-in;
+}

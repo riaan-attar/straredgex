@@ -1,0 +1,239 @@
+import React, { useState } from 'react';
+import PlusIcon from './PlusIcon';
+
+type MegaMenuKey = 'strategy' | 'capabilities' | null;
+
+interface MenuContent {
+  title: string;
+  desc: string;
+  img: string;
+  c1t: string;
+  c1l: string[];
+  c2t: string;
+  c2l: string[];
+}
+
+const menuData: Record<'strategy' | 'capabilities', MenuContent> = {
+  strategy: {
+    title: "Our Strategy",
+    desc: "Architectural precision in marketing. We engineer systems, not just campaigns.",
+    img: "https://images.unsplash.com/photo-1622737133809-d95047b9e673?ixid=M3w4NjU0NDF8MHwxfHNlYXJjaHwxfHxNaW5pbWFsaXN0fGVufDB8fHx8MTc3NDI0Mjc2Mnww&ixlib=rb-4.1.0&w=800&h=450&fit=crop&fm=jpg&q=80",
+    c1t: "Methodology",
+    c1l: ["Structural Audit", "Growth Blueprints", "Market Position Audit", "Friction Analysis"],
+    c2t: "Insights",
+    c2l: ["Case Studies", "Strategic Whitepapers", "System Design Theory", "Success Metrics"]
+  },
+  capabilities: {
+    title: "Core Capabilities",
+    desc: "Specialized divisions operating with surgical precision to solve complex bottlenecks.",
+    img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?ixid=M3w4NjU0NDF8MHwxfHNlYXJjaHwxfHxDbGVhbnxlbnwwfHx8fDE3NzQyNDI3NjJ8MA&ixlib=rb-4.1.0&w=800&h=450&fit=crop&fm=jpg&q=80",
+    c1t: "Solutions",
+    c1l: ["Market Intelligence", "Brand Engineering", "Performance Media", "Revenue Ops"],
+    c2t: "Integration",
+    c2l: ["API Connectivity", "CRM Optimization", "Funnel Automation", "Data Visualization"]
+  }
+};
+
+export const Navbar: React.FC = () => {
+  const [activeMenu, setActiveMenu] = useState<MegaMenuKey>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const currentContent = activeMenu ? menuData[activeMenu] : null;
+
+  return (
+    <header className="w-full flex flex-col items-center pt-6 md:pt-12 relative z-50 px-4 md:px-6" id="nav-container">
+      <div className="w-full max-w-[1440px] relative" id="nav-wrapper" onMouseLeave={() => setActiveMenu(null)}>
+        <nav className="flex items-center justify-between border border-border-primary h-nav-height bg-white overflow-visible transition-colors duration-300">
+          
+          {/* Brand Section */}
+          <div className="flex items-center h-full px-4 md:px-8 border-r border-border-primary shrink-0 relative">
+            <a href="/" className="flex items-center gap-2 group">
+              <span className="material-symbols-outlined text-brand-primary text-2xl group-hover:scale-110 transition-transform">token</span>
+              <span className="text-base md:text-lg font-bold tracking-[0.2em] uppercase italic">Servexa</span>
+            </a>
+            <div className="absolute -bottom-[8px] -left-[8px]">
+              <PlusIcon />
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex flex-grow h-full items-center overflow-visible">
+            
+            {/* Strategy item */}
+            <div 
+              className="h-full flex items-center group cursor-pointer border-r border-border-primary nav-item" 
+              onMouseEnter={() => setActiveMenu('strategy')}
+            >
+              <a href="#strategy" className="h-full flex items-center px-[30px] relative z-10 overflow-hidden w-full">
+                <span className="text-[13px] font-bold uppercase tracking-[0.1em] group-hover:-translate-y-full transition-transform duration-500 ease-in-out">Strategy</span>
+                <div className="absolute inset-0 bg-brand-primary flex items-center px-[30px] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                  <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-brand-accent">Strategy</span>
+                </div>
+              </a>
+            </div>
+
+            {/* Capabilities item */}
+            <div 
+              className="h-full flex items-center group cursor-pointer border-r border-border-primary nav-item"
+              onMouseEnter={() => setActiveMenu('capabilities')}
+            >
+              <a href="#capabilities" className="h-full flex items-center px-[30px] relative z-10 overflow-hidden w-full">
+                <span className="text-[13px] font-bold uppercase tracking-[0.1em] group-hover:-translate-y-full transition-transform duration-500 ease-in-out">Capabilities</span>
+                <div className="absolute inset-0 bg-brand-primary flex items-center px-[30px] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                  <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-brand-accent">Capabilities</span>
+                </div>
+              </a>
+            </div>
+
+            {/* Impact item */}
+            <div className="h-full flex items-center group cursor-pointer border-r border-border-primary" onMouseEnter={() => setActiveMenu(null)}>
+              <a href="#impact" className="h-full flex items-center px-[30px] relative z-10 overflow-hidden w-full">
+                <span className="text-[13px] font-bold uppercase tracking-[0.1em] group-hover:-translate-y-full transition-transform duration-500 ease-in-out">Impact</span>
+                <div className="absolute inset-0 bg-brand-primary flex items-center px-[30px] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                  <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-brand-accent">Impact</span>
+                </div>
+              </a>
+            </div>
+
+            {/* FAQ item */}
+            <div className="h-full flex items-center group cursor-pointer border-r border-border-primary" onMouseEnter={() => setActiveMenu(null)}>
+              <a href="#faq" className="h-full flex items-center px-[30px] relative z-10 overflow-hidden w-full">
+                <span className="text-[13px] font-bold uppercase tracking-[0.1em] group-hover:-translate-y-full transition-transform duration-500 ease-in-out">FAQ</span>
+                <div className="absolute inset-0 bg-brand-primary flex items-center px-[30px] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                  <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-brand-accent">FAQ</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Action Section */}
+          <div className="flex items-center h-full shrink-0 relative">
+            <a href="#contact" className="hidden xl:flex items-center px-8 h-full text-[13px] font-bold uppercase tracking-[0.1em] border-l border-border-primary hover:bg-neutral-background transition-colors">
+              Partner Portal
+            </a>
+            
+            <div className="h-full hidden sm:flex items-center group cursor-pointer overflow-hidden border-l border-border-primary min-w-0 md:min-w-[180px]">
+              <a href="#contact" className="h-full w-full flex items-center justify-center px-6 md:px-0 relative z-10 overflow-hidden bg-brand-primary">
+                <span className="text-[11px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-brand-accent group-hover:-translate-y-full transition-transform duration-500 ease-in-out whitespace-nowrap">Inquire Now</span>
+                <div className="absolute inset-0 bg-white flex items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                  <span className="text-[11px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-brand-primary whitespace-nowrap">Inquire Now</span>
+                </div>
+              </a>
+            </div>
+
+            <button 
+              id="mobile-menu-toggle" 
+              onClick={() => setMobileMenuOpen(true)}
+              className="lg:hidden px-4 md:px-6 border-l border-border-primary h-full flex items-center text-text-primary focus:outline-none"
+            >
+              <span className="material-symbols-outlined">menu</span>
+            </button>
+            
+            <div className="absolute -bottom-[8px] -right-[8px]">
+              <PlusIcon />
+            </div>
+          </div>
+        </nav>
+
+        {/* Mega Menu Content */}
+        {activeMenu && currentContent && (
+          <div className="absolute left-0 right-0 z-40 bg-white border-x border-b border-border-primary overflow-hidden origin-top transition-all duration-300 opacity-100 transform translate-y-0 shadow-2xl">
+            <div className="grid grid-cols-12 gap-0 overflow-hidden">
+              {/* Left Sidebar */}
+              <div className="col-span-4 bg-brand-accent/50 p-12 border-r border-border-primary flex flex-col justify-between">
+                <div className="space-y-8">
+                  <h3 className="text-[10px] font-bold uppercase tracking-[0.25em] text-text-secondary">{currentContent.title}</h3>
+                  <div className="space-y-6">
+                    <div 
+                      className="aspect-[16/9] bg-brand-primary/10 rounded-sm overflow-hidden bg-cover bg-center border border-border-primary"
+                      style={{ backgroundImage: `url('${currentContent.img}')` }}
+                    ></div>
+                    <p className="text-2xl font-normal leading-tight tracking-tight text-text-primary">{currentContent.desc}</p>
+                    <a href="#strategy" className="inline-flex items-center text-[10px] font-bold uppercase tracking-widest border-b-2 border-brand-primary pb-1 hover:border-text-secondary transition-colors">
+                      Discover More
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Right Content */}
+              <div className="col-span-8 p-0 bg-white">
+                <div className="grid grid-cols-2 h-full">
+                  <div className="border-r border-border-primary py-10">
+                    <h4 className="text-[10px] font-bold uppercase tracking-[0.25em] text-text-secondary mb-8 px-10">{currentContent.c1t}</h4>
+                    <ul className="flex flex-col">
+                      {currentContent.c1l.map((linkText, idx) => (
+                        <li key={idx} className="relative h-[48px] border-b border-border-primary last:border-b-0 overflow-hidden w-full">
+                          <a href="#" className="group block h-full w-full">
+                            <div className="h-full flex items-center px-10 relative z-10 transition-transform duration-500 group-hover:-translate-y-full">
+                              <span className="text-[12px] uppercase tracking-[0.05em] text-text-primary font-bold">{linkText}</span>
+                            </div>
+                            <div className="absolute inset-0 bg-brand-primary h-full flex items-center px-10 translate-y-full transition-transform duration-500 group-hover:translate-y-0">
+                              <span className="text-[12px] uppercase tracking-[0.05em] text-brand-accent font-bold flex justify-between w-full items-center">
+                                {linkText}
+                                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                              </span>
+                            </div>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="py-10">
+                    <h4 className="text-[10px] font-bold uppercase tracking-[0.25em] text-text-secondary mb-8 px-10">{currentContent.c2t}</h4>
+                    <ul className="flex flex-col">
+                      {currentContent.c2l.map((linkText, idx) => (
+                        <li key={idx} className="relative h-[48px] border-b border-border-primary last:border-b-0 overflow-hidden w-full">
+                          <a href="#" className="group block h-full w-full">
+                            <div className="h-full flex items-center px-10 relative z-10 transition-transform duration-500 group-hover:-translate-y-full">
+                              <span className="text-[12px] uppercase tracking-[0.05em] text-text-primary font-bold">{linkText}</span>
+                            </div>
+                            <div className="absolute inset-0 bg-brand-primary h-full flex items-center px-10 translate-y-full transition-transform duration-500 group-hover:translate-y-0">
+                              <span className="text-[12px] uppercase tracking-[0.05em] text-brand-accent font-bold flex justify-between w-full items-center">
+                                {linkText}
+                                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                              </span>
+                            </div>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 bg-neutral-background z-[60] flex flex-col p-10 transition-transform duration-300 lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="flex justify-between items-center mb-12">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-brand-primary text-3xl">token</span>
+            <span className="text-2xl font-bold tracking-tight text-text-primary uppercase italic">Servexa</span>
+          </div>
+          <button 
+            onClick={() => setMobileMenuOpen(false)}
+            className="p-2 text-text-primary focus:outline-none"
+          >
+            <span className="material-symbols-outlined text-3xl">close</span>
+          </button>
+        </div>
+        <nav className="flex flex-col gap-8">
+          <a href="#strategy" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-text-primary">Our Strategy</a>
+          <a href="#capabilities" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-text-primary">Capabilities</a>
+          <a href="#impact" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-text-primary">Client Impact</a>
+          <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-text-primary">FAQ</a>
+          <hr className="border-border-primary" />
+          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="bg-brand-primary text-brand-accent h-16 rounded-custom flex items-center justify-center text-xl font-medium">
+            Partner With Us
+          </a>
+        </nav>
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;
