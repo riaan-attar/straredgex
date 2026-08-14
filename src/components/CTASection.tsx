@@ -29,7 +29,7 @@ export const CTASection: React.FC = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} id="contact" className="max-w-[1820px] mx-auto px-6 md:px-20 py-24 lg:py-40 relative overflow-visible">
+    <section ref={containerRef} id="contact" className="max-w-[1820px] mx-auto px-6 md:px-20 pt-24 lg:pt-40 pb-12 lg:pb-16 relative overflow-visible">
       <div className="bg-forest rounded-custom p-10 md:p-24 flex flex-col items-center text-center gap-12 relative overflow-hidden shadow-2xl">
         {/* Decorative background element */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">

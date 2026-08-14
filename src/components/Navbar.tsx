@@ -114,7 +114,7 @@ export const Navbar: React.FC = () => {
             </a>
             
             <div className="h-full hidden sm:flex items-center group cursor-pointer overflow-hidden border-l border-border-muted min-w-0 md:min-w-[180px]">
-              <a href="#contact" className="h-full w-full flex items-center justify-center px-6 md:px-0 relative z-10 overflow-hidden bg-brand-amber">
+              <a href="#contact-form-section" className="h-full w-full flex items-center justify-center px-6 md:px-0 relative z-10 overflow-hidden bg-brand-amber">
                 <span className="text-[11px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-forest group-hover:-translate-y-full transition-transform duration-500 ease-in-out whitespace-nowrap">Inquire Now</span>
                 <div className="absolute inset-0 bg-forest flex items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
                   <span className="text-[11px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-brand-amber whitespace-nowrap">Inquire Now</span>
@@ -228,7 +228,7 @@ export const Navbar: React.FC = () => {
           <a href="#impact" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-ink hover:text-rust">Client Impact</a>
           <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-ink hover:text-rust">FAQ</a>
           <hr className="border-border-muted" />
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="bg-brand-amber text-forest h-16 rounded-custom flex items-center justify-center text-xl font-bold">
+          <a href="#contact-form-section" onClick={() => setMobileMenuOpen(false)} className="bg-brand-amber text-forest h-16 rounded-custom flex items-center justify-center text-xl font-bold">
             Partner With Us
           </a>
         </nav>

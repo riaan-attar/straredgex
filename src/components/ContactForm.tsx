@@ -66,11 +66,12 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <section ref={containerRef} id="contact-form-section" className="max-w-[1820px] mx-auto px-6 md:px-20 py-24 lg:py-32 border-b border-border-muted relative overflow-visible bg-[#EEF2F5]">
-      {/* Corner decorations */}
-      <div className="absolute top-[8px] right-[8px]">
-        <PlusIcon />
-      </div>
+    <section ref={containerRef} id="contact-form-section" className="w-full bg-[#EEF2F5] relative z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.1)] border-b border-border-muted overflow-visible">
+      <div className="max-w-[1820px] mx-auto px-6 md:px-20 py-24 lg:py-32 relative">
+        {/* Corner decorations */}
+        <div className="absolute top-[8px] right-[8px]">
+          <PlusIcon />
+        </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
         {/* Left Side Info */}
@@ -190,9 +191,10 @@ export const ContactForm: React.FC = () => {
         </div>
       </div>
 
-      {/* Corner decorations */}
-      <div className="absolute -bottom-[8px] -right-[8px]">
-        <PlusIcon />
+        {/* Corner decorations */}
+        <div className="absolute -bottom-[8px] -right-[8px]">
+          <PlusIcon />
+        </div>
       </div>
     </section>
   );

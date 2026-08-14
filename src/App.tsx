@@ -10,10 +10,33 @@ import CTASection from './components/CTASection';
 import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
+import SwarmCursor from './components/SwarmCursor';
+import CustomCursor from './components/CustomCursor';
+import ScrollToTop from './components/ScrollToTop';
 
 export const App: React.FC = () => {
   return (
     <div className="font-primary bg-neutral-background text-text-primary overflow-x-hidden min-h-screen flex flex-col w-full relative">
+      <CustomCursor />
+      <ScrollToTop />
+      <SwarmCursor
+        color="#FEBD59"
+        accentColor="#FEBD59"
+        count={4}
+        size={5}
+        speed={2.5}
+        spread={100}
+        wander={0.25}
+        trail={0.75}
+        scatterOnClick
+        targetElementId="bulb-anchor"
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 9999,
+          pointerEvents: 'none',
+        }}
+      />
       <Navbar />
       <main className="flex-grow">
         <Hero />

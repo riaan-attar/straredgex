@@ -128,8 +128,8 @@ export const Impact: React.FC = () => {
   }, []);
 
   return (
-    <section id="impact" ref={sectionRef} className="max-w-[1820px] mx-auto px-6 md:px-20 py-24 lg:py-32 border-b border-border-muted bg-bg-cream">
-      <div className="flex flex-col gap-20">
+    <section id="impact" ref={sectionRef} className="w-full bg-bg-cream relative z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.1)] border-b border-border-muted">
+      <div className="max-w-[1820px] mx-auto px-6 md:px-20 py-24 lg:py-32 flex flex-col gap-20">
         <div ref={headerRef} className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <h2 className="text-[38px] md:text-[60px] font-medium leading-heading tracking-heading text-ink">
             Measured Outcomes.

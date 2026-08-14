@@ -1,7 +1,10 @@
 import React, { useRef } from 'react';
 import PlusIcon from './PlusIcon';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface CapabilityCardProps {
   icon: string;
@@ -57,6 +60,19 @@ export const Capabilities: React.FC = () => {
         }
       }
     );
+
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 1024px)", () => {
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: 'top top',
+        end: '+=100%',
+        pin: true,
+        pinSpacing: false,
+      });
+    });
+
+    return () => mm.revert();
   }, { scope: containerRef });
 
   const capabilities = [
@@ -83,8 +99,8 @@ export const Capabilities: React.FC = () => {
   ];
 
   return (
-    <section ref={containerRef} id="capabilities" className="bg-brand-amber py-24 lg:py-32 relative overflow-hidden border-b border-border-muted">
-      <div className="max-w-[1820px] mx-auto px-6 md:px-20 relative z-10">
+    <section ref={containerRef} id="capabilities" className="bg-brand-amber py-24 lg:py-0 relative overflow-hidden border-b border-border-muted lg:h-screen z-0 flex flex-col justify-center">
+      <div className="max-w-[1820px] mx-auto px-6 md:px-20 relative z-10 w-full">
         <div ref={headerRef} className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
           <div className="flex flex-col gap-6 max-w-2xl">
             <h2 className="text-[38px] md:text-[60px] font-medium leading-heading tracking-heading text-forest">

@@ -13,6 +13,12 @@
 }
 
 @layer base {
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
+  }
+
   body {
     margin: 0;
     padding: 0;

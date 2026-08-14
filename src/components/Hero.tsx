@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import PlusIcon from './PlusIcon';
-import InteractiveBulb from './InteractiveBulb';
+import AtomBulbHero from './AtomBulbHero';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -91,46 +91,9 @@ export const Hero: React.FC = () => {
               <PlusIcon />
             </div>
 
-            {/* Main Card Content */}
-            <div className="bg-forest p-6 md:p-[30px] flex flex-col gap-16 md:gap-[100px] rounded-custom border border-forest shadow-2xl text-bg-cream">
-              <div className="flex flex-col gap-[30px]">
-                {/* Overlapping Portraits */}
-                <div className="flex relative h-[50px] md:h-[70px] w-full">
-                  <div className="w-[50px] md:w-[70px] h-[50px] md:h-[70px] rounded-full border-2 border-forest overflow-hidden z-0">
-                    <img 
-                      src="https://images.unsplash.com/photo-1692105944201-e893a1ac8044?ixid=M3w4NjU0NDF8MHwxfHNlYXJjaHwxfHxQcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBlcnNvbiUyMHBvcnRyYWl0fGVufDB8Mnx8fDE3NzM4MDg4MTB8MA&ixlib=rb-4.1.0&w=140&h=140&fit=crop&fm=jpg&q=80" 
-                      alt="Executive Support Member" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="w-[50px] md:w-[70px] h-[50px] md:h-[70px] rounded-full border-2 border-forest overflow-hidden -ml-[15px] md:-ml-[20px] z-10">
-                    <img 
-                      src="https://images.unsplash.com/photo-1649151139875-ae8ea07082e2?ixid=M3w4NjU0NDF8MHwxfHNlYXJjaHwxfHxNYXJrZXRpbmclMjBzdHJhdGVnaXN0JTIwcG9ydHJhaXR8ZW58MHwyfHx8MTc3MzgwODgxMHww&ixlib=rb-4.1.0&w=140&h=140&fit=crop&fm=jpg&q=80" 
-                      alt="Operations Manager" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="w-[50px] md:w-[70px] h-[50px] md:h-[70px] rounded-full border-2 border-forest overflow-hidden -ml-[15px] md:-ml-[20px] z-20">
-                    <img 
-                      src="https://images.unsplash.com/photo-1637761566180-9dbde4fdab77?ixid=M3w4NjU0NDF8MHwxfHNlYXJjaHwxfHxDcmVhdGl2ZSUyMGRpcmVjdG9yJTIwcG9ydHJhaXR8ZW58MHwyfHx8MTc3MzgwODgxMHww&ixlib=rb-4.1.0&w=140&h=140&fit=crop&fm=jpg&q=80" 
-                      alt="Technical Lead" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="w-[50px] md:w-[70px] h-[50px] md:h-[70px] rounded-full border-2 border-forest overflow-hidden -ml-[15px] md:-ml-[20px] z-30">
-                    <img 
-                      src="https://images.pexels.com/photos/7693229/pexels-photo-7693229.jpeg?w=140&h=140&fit=crop" 
-                      alt="Customer Success" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-
-                {/* Interactive 3D Bulb */}
-                <div className="w-full mt-4 -mb-8">
-                  <InteractiveBulb />
-                </div>
-              </div>
+            {/* Bulb Canvas Container */}
+            <div className="relative w-full h-full flex items-center justify-center">
+              <AtomBulbHero />
             </div>
           </div>
         </div>
