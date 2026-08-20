@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PlusIcon from './PlusIcon';
-import LogoIcon from './LogoIcon';
+import Logo from './Logo';
 
 type MegaMenuKey = 'strategy' | 'capabilities' | null;
 
@@ -47,12 +47,14 @@ export const Navbar: React.FC = () => {
         <nav className="flex items-center justify-between border border-border-muted h-nav-height bg-bg-cream overflow-visible transition-colors duration-300">
           
           {/* Brand Section */}
-          <div className="flex items-center h-full px-4 md:px-8 border-r border-border-muted shrink-0 relative">
-            <a href="/" className="flex items-center gap-2 group">
-              <LogoIcon className="w-8 h-8 text-brand-amber group-hover:scale-110 transition-transform" />
-              <span className="text-base md:text-lg font-bold tracking-[0.2em] uppercase italic text-forest">StratedgeX</span>
+          <div className="flex items-center h-full border-r border-border-muted shrink-0 relative bg-bg-cream">
+            <a href="/" className="flex items-center h-full group overflow-hidden" aria-label="StratedgeX Home">
+              <Logo 
+                className="h-full"
+                imgClassName="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+              />
             </a>
-            <div className="absolute -bottom-[8px] -left-[8px]">
+            <div className="absolute -bottom-[8px] -left-[8px] z-10 pointer-events-none">
               <PlusIcon />
             </div>
           </div>
@@ -211,10 +213,9 @@ export const Navbar: React.FC = () => {
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 bg-bg-cream z-[60] flex flex-col p-10 transition-transform duration-300 lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex justify-between items-center mb-12">
-          <div className="flex items-center gap-2">
-            <LogoIcon className="w-10 h-10 text-brand-amber" />
-            <span className="text-2xl font-bold tracking-tight text-forest uppercase italic">StratedgeX</span>
-          </div>
+          <a href="/" onClick={() => setMobileMenuOpen(false)}>
+            <Logo imgClassName="h-11 w-auto object-contain rounded-md shadow-sm" />
+          </a>
           <button 
             onClick={() => setMobileMenuOpen(false)}
             className="p-2 text-ink focus:outline-none"

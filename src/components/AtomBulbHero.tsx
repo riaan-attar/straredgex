@@ -231,11 +231,20 @@ export default function AtomBulbHero() {
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(mount);
 
+    // ---------- Intersection Observer to pause rendering ----------
+    let isVisible = true;
+    const intersectionObserver = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    }, { threshold: 0 });
+    intersectionObserver.observe(mount);
+
     // ---------- Animation loop ----------
     const clock = new THREE.Clock();
 
     function animate() {
       frameRef.current = requestAnimationFrame(animate);
+      if (!isVisible) return; // Pause rendering when not visible to fix lag
+
       const delta = clock.getDelta();
       const elapsed = clock.getElapsedTime();
 
@@ -272,6 +281,7 @@ export default function AtomBulbHero() {
     return () => {
       cancelAnimationFrame(frameRef.current);
       resizeObserver.disconnect();
+      intersectionObserver.disconnect();
       mount.removeEventListener('pointermove', handlePointerMove);
       mount.removeEventListener('pointerleave', handlePointerLeave);
 

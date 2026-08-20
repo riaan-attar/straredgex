@@ -1,6 +1,6 @@
 import React from 'react';
 import PlusIcon from './PlusIcon';
-import LogoIcon from './LogoIcon';
+import Logo from './Logo';
 
 export const Footer: React.FC = () => {
   return (
@@ -9,10 +9,9 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           {/* Brand Info */}
           <div className="flex flex-col gap-8">
-            <div className="flex items-center gap-2">
-              <LogoIcon className="w-10 h-10 text-brand-amber" />
-              <span className="text-2xl font-bold tracking-tight text-white uppercase italic">StratedgeX</span>
-            </div>
+            <a href="/" className="inline-block group">
+              <Logo imgClassName="h-11 sm:h-12 w-auto object-contain rounded-md shadow-sm group-hover:scale-105 transition-transform" />
+            </a>
             <p className="text-bg-cream/80 text-[18px] leading-relaxed max-w-xs">
               Engineering high-converting performance marketing systems for ambitious brands.
             </p>

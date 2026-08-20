@@ -32,12 +32,11 @@ export const CustomCursor: React.FC = () => {
         left: -16,
         width: 32,
         height: 32,
-        backgroundColor: '#D9BAC0', // Calculated inverse to appear as #1E3A2E on cream (#F7F4EE)
+        backgroundColor: '#1E3A2E', // Solid forest color to avoid expensive blend modes
         borderRadius: '50%',
         pointerEvents: 'none',
         zIndex: 10000,
         willChange: 'transform',
-        mixBlendMode: 'difference',
       }}
     />
   );
