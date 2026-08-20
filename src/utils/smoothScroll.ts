@@ -15,7 +15,7 @@ export const initSmoothScroll = () => {
 
   const lenis = new Lenis({
     duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     gestureOrientation: 'vertical',
     smoothWheel: true,
@@ -50,7 +50,7 @@ export const initSmoothScroll = () => {
         lenis.scrollTo(targetElement as HTMLElement, {
           offset: -40,
           duration: 1.2,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
       }
     }
@@ -68,7 +68,7 @@ export const scrollToElement = (target: string | HTMLElement, offset: number = -
     lenisInstance.scrollTo(target, {
       offset,
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
   } else if (typeof target === 'string') {
     const el = document.querySelector(target);
