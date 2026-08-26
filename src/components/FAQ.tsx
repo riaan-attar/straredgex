@@ -2,16 +2,17 @@ import React, { useRef, useState } from 'react';
 import PlusIcon from './PlusIcon';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { useCurrency } from '../context/CurrencyContext';
 
 interface FAQItem {
   question: string;
-  answer: string;
+  answer: string | ((spend: string) => string);
 }
 
 const faqData: FAQItem[] = [
   {
     question: "What ad budget do you recommend starting with?",
-    answer: "We typically partner with brands spending a minimum of $10,000/month across Google and Meta. This provides enough data velocity for our testing protocols to quickly identify profitable scaling opportunities."
+    answer: (spend: string) => `We typically partner with brands spending a minimum of ${spend} across Google and Meta. This provides enough data velocity for our testing protocols to quickly identify profitable scaling opportunities.`
   },
   {
     question: "Do you build the landing pages from scratch?",
@@ -31,6 +32,8 @@ export const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
+  const { faqMinSpendText } = useCurrency();
+
 
   useGSAP(() => {
     gsap.fromTo(headerRef.current,
@@ -126,7 +129,7 @@ export const FAQ: React.FC = () => {
                   }}
                 >
                   <p className="text-ink/70 text-lg leading-relaxed pb-8 max-w-3xl">
-                    {item.answer}
+                    {typeof item.answer === 'function' ? item.answer(faqMinSpendText) : item.answer}
                   </p>
                 </div>
               </div>

@@ -4,6 +4,8 @@ import Logo from './Logo';
 
 type MegaMenuKey = 'strategy' | 'capabilities' | null;
 
+
+
 interface MenuContent {
   title: string;
   desc: string;
@@ -40,6 +42,7 @@ export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const currentContent = activeMenu ? menuData[activeMenu] : null;
+
 
   return (
     <header className="w-full flex flex-col items-center pt-6 md:pt-12 relative z-50 px-4 md:px-6" id="nav-container">

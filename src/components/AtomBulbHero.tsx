@@ -224,6 +224,11 @@ export default function AtomBulbHero() {
       width = mount.clientWidth;
       height = mount.clientHeight;
       if (width === 0 || height === 0) return;
+      
+      // Adjust bulb size for PC vs Mobile
+      const scale = width > 768 ? 2.0 : 1.6;
+      root.scale.set(scale, scale, scale);
+
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
@@ -326,6 +331,66 @@ export default function AtomBulbHero() {
           minHeight: 550,
         }}
       />
+      {/* Orbital Services */}
+      <style>{`
+        @keyframes orbit-spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes counter-spin {
+          from { transform: rotate(360deg); }
+          to { transform: rotate(0deg); }
+        }
+        .orbit-wrapper {
+          --radius: 160px;
+        }
+        @media (min-width: 768px) {
+          .orbit-wrapper {
+            --radius: 240px;
+          }
+        }
+      `}</style>
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-10 overflow-visible">
+        <div className="-translate-y-20 md:-translate-y-24">
+          <div 
+            className="relative orbit-wrapper"
+            style={{ animation: 'orbit-spin 40s linear infinite' }}
+          >
+            {[
+            { name: 'Google Ads', icon: 'ads_click', color: 'text-[#4285F4]' },
+            { name: 'Meta Ads', icon: 'campaign', color: 'text-[#0668E1]' },
+            { name: 'Website', icon: 'web', color: 'text-[#34A853]' },
+            { name: 'SEO', icon: 'query_stats', color: 'text-[#EA4335]' },
+            { name: 'Email Marketing', icon: 'mail', color: 'text-[#9333EA]' },
+          ].map((service, i, arr) => {
+            const angle = (i * 2 * Math.PI) / arr.length;
+            const x = Math.sin(angle);
+            const y = -Math.cos(angle);
+            
+            return (
+              <div
+                key={service.name}
+                className="absolute top-0 left-0"
+                style={{
+                  transform: `translate(calc(${x} * var(--radius) - 50%), calc(${y} * var(--radius) - 50%))`
+                }}
+              >
+                <div style={{ animation: 'counter-spin 40s linear infinite' }} className="group relative pointer-events-auto cursor-help">
+                  <div className={`w-12 h-12 md:w-14 md:h-14 bg-white/95 backdrop-blur-sm rounded-full shadow-[0_4px_20px_rgb(0,0,0,0.08)] border border-brand-amber/40 flex items-center justify-center hover:scale-110 hover:border-rust transition-all duration-300 ${service.color}`}>
+                    <span className="material-symbols-outlined text-[22px] md:text-[26px]">{service.icon}</span>
+                  </div>
+                  
+                  {/* Tooltip */}
+                  <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-ink text-bg-cream text-[11px] md:text-xs px-2.5 py-1.5 rounded-md whitespace-nowrap shadow-xl pointer-events-none">
+                    {service.name}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        </div>
+      </div>
     </div>
   );
 }

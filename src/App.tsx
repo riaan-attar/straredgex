@@ -13,10 +13,14 @@ import Footer from './components/Footer';
 import SwarmCursor from './components/SwarmCursor';
 import CustomCursor from './components/CustomCursor';
 import ScrollToTop from './components/ScrollToTop';
+import { CurrencyProvider } from './context/CurrencyContext';
+
+import LeadQuoteCard from './components/LeadQuoteCard';
 
 export const App: React.FC = () => {
   return (
-    <div className="font-primary bg-neutral-background text-text-primary overflow-x-hidden min-h-screen flex flex-col w-full relative">
+    <CurrencyProvider>
+      <div className="font-primary bg-neutral-background text-text-primary overflow-x-hidden min-h-screen flex flex-col w-full relative">
       <CustomCursor />
       <ScrollToTop />
       <SwarmCursor
@@ -42,6 +46,7 @@ export const App: React.FC = () => {
         <Hero />
         <LogoCloud />
         <Strategy />
+        <LeadQuoteCard />
         <Capabilities />
         <Impact />
         <FAQ />
@@ -51,6 +56,7 @@ export const App: React.FC = () => {
       </main>
       <Footer />
     </div>
+    </CurrencyProvider>
   );
 };
 

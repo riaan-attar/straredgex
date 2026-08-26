@@ -99,7 +99,7 @@ export const Capabilities: React.FC = () => {
   ];
 
   return (
-    <section ref={containerRef} id="capabilities" className="bg-brand-amber py-24 lg:py-0 relative overflow-hidden border-b border-border-muted lg:h-screen z-0 flex flex-col justify-center">
+    <section ref={containerRef} id="capabilities" className="bg-brand-amber pt-12 pb-24 lg:pt-12 lg:pb-32 relative overflow-hidden border-b border-border-muted z-0 flex flex-col justify-center">
       <div className="max-w-[1820px] mx-auto px-6 md:px-20 relative z-10 w-full">
         <div ref={headerRef} className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
           <div className="flex flex-col gap-6 max-w-2xl">
@@ -118,7 +118,7 @@ export const Capabilities: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border-muted border border-border-muted rounded-custom overflow-hidden shadow-sm">
           {capabilities.map((item, index) => (
-            <CapabilityCard 
+            <CapabilityCard
               key={index}
               icon={item.icon}
               title={item.title}

@@ -65,10 +65,10 @@ export const Hero: React.FC = () => {
             </p>
           </div>
 
-          <div ref={ctaRef} className="flex">
+          <div ref={ctaRef} className="flex flex-col gap-8">
             <a 
               href="#contact" 
-              className="w-full sm:w-auto bg-brand-amber text-forest hover:bg-forest hover:text-brand-amber border border-border-muted rounded-custom flex items-center justify-between sm:justify-start gap-[26px] overflow-hidden group h-[59px] pr-0 transition-all duration-300 shadow-md font-bold"
+              className="w-full sm:w-max bg-brand-amber text-forest hover:bg-forest hover:text-brand-amber border border-border-muted rounded-custom flex items-center justify-between sm:justify-start gap-[26px] overflow-hidden group h-[59px] pr-0 transition-all duration-300 shadow-md font-bold"
             >
               <span className="pl-[26px] text-[16px] md:text-[18px] tracking-cta font-bold">Scale Your Revenue</span>
               <div className="flex items-center h-full">
@@ -78,6 +78,46 @@ export const Hero: React.FC = () => {
                 </div>
               </div>
             </a>
+
+            {/* Partner Tags */}
+            <div className="flex flex-wrap items-center gap-10 md:gap-14 mt-4">
+              {/* Google Ads */}
+              <div className="flex items-center gap-3 text-ink">
+                <svg viewBox="0 0 24 24" className="h-8 w-8">
+                  <path fill="#FBBC05" d="M12.4,3.2L1.8,21.5c-0.6,1-0.3,2.4,0.7,3c1,0.6,2.4,0.3,3-0.7l10.6-18.3c0.6-1,0.3-2.4-0.7-3C14.4,1.9,13,2.2,12.4,3.2z"/>
+                  <path fill="#4285F4" d="M18.8,14.6l-5.3-9.1l-2.6,4.5l5.3,9.1c0.6,1,2,1.3,3,0.7C20.1,19.2,20.5,17.8,18.8,14.6z"/>
+                  <circle fill="#34A853" cx="4.8" cy="21.5" r="2.5" />
+                </svg>
+                <span className="font-bold text-[20px] md:text-[24px] tracking-tight">Google Ads</span>
+              </div>
+              
+              {/* Meta */}
+              <div className="flex items-center gap-2 text-ink">
+                <svg viewBox="0 0 36 36" className="h-7 md:h-8 w-auto -ml-1">
+                  <path fill="#0668E1" d="M28.5,13.7c-2.3,0-4.3,1-5.9,2.6c-1.6-1.6-3.6-2.6-5.9-2.6c-4.4,0-8.1,3.6-8.1,8s3.7,8,8.1,8c2.3,0,4.3-1,5.9-2.6
+                    c1.6,1.6,3.6,2.6,5.9,2.6c4.4,0,8.1-3.6,8.1-8S32.9,13.7,28.5,13.7z M16.7,25.6c-2.1,0-3.9-1.8-3.9-3.9c0-2.1,1.8-3.9,3.9-3.9
+                    c1.2,0,2.3,0.5,3,1.4C18.9,21,17.9,23.3,16.7,25.6z M28.5,25.6c-1.2,0-2.3-0.5-3-1.4c0.8-1.9,1.8-4.2,3-6.4
+                    c2.1,0,3.9,1.8,3.9,3.9C32.4,23.8,30.6,25.6,28.5,25.6z"/>
+                </svg>
+                <span className="font-bold text-[20px] md:text-[24px] tracking-tight -ml-1">Meta</span>
+              </div>
+
+              {/* Google Partner */}
+              <div className="flex items-center gap-3.5 text-ink">
+                <div className="w-[7px] h-[36px] bg-[#4285F4] rounded-[2px]"></div>
+                <div className="flex flex-col justify-center h-full">
+                  <span className="text-[12px] font-extrabold tracking-[0.05em] leading-none mb-1">
+                    <span className="text-[#4285F4]">G</span>
+                    <span className="text-[#EA4335]">o</span>
+                    <span className="text-[#FBBC05]">o</span>
+                    <span className="text-[#4285F4]">g</span>
+                    <span className="text-[#34A853]">l</span>
+                    <span className="text-[#EA4335]">e</span>
+                  </span>
+                  <span className="font-bold text-[20px] md:text-[24px] tracking-tight leading-none text-ink/80">Partner</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
