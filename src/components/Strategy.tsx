@@ -118,8 +118,8 @@ export const Strategy: React.FC = () => {
       </div>
 
       {/* The StratedgeX Flowchart */}
-      <div className="mt-32 lg:mt-48 relative border-t border-border-muted/50 pt-24">
-        <div className="text-center mb-20">
+      <div className="mt-14 lg:mt-20 relative border-t border-border-muted/50 pt-12 lg:pt-16 pb-12 lg:pb-20">
+        <div className="text-center mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-3 text-rust mb-4">
             <span className="w-8 h-px bg-rust"></span>
             <span className="uppercase font-semibold tracking-widest text-xs">The Blueprint</span>
