@@ -4,9 +4,14 @@ import * as THREE from 'three';
 const ACCENT = 0xfebd59; // brand-amber
 const ACCENT_STROKE = 0xc9782e; // rust (darker/saturated for outline)
 
-export default function AtomBulbHero() {
+export default function AtomBulbHero({ forceHover = false }: { forceHover?: boolean } = {}) {
   const mountRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef(0);
+  const forceHoverRef = useRef(forceHover);
+
+  useEffect(() => {
+    forceHoverRef.current = forceHover;
+  }, [forceHover]);
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -253,8 +258,10 @@ export default function AtomBulbHero() {
       const delta = clock.getDelta();
       const elapsed = clock.getElapsedTime();
 
+      const activeHover = isHovering || forceHoverRef.current;
+
       // Speed up electrons when hovering
-      const speedMult = isHovering ? 3.0 : 1.0;
+      const speedMult = activeHover ? 3.0 : 1.0;
       electrons.forEach((e) => {
         e.pivot.rotation.z += (e.speed * speedMult) * delta;
       });
@@ -264,7 +271,7 @@ export default function AtomBulbHero() {
       targetRotation.x += (pointer.y * -1.0 - targetRotation.x) * 0.08;
 
       // Lock orientation to face camera with small oscillation, overridden by hover
-      const autoOscillation = isHovering ? 0 : Math.sin(elapsed * 1.5) * 0.1;
+      const autoOscillation = activeHover ? 0 : Math.sin(elapsed * 1.5) * 0.1;
       root.rotation.y = autoOscillation + targetRotation.y;
       root.rotation.x = targetRotation.x;
       // Hover vertically slightly
@@ -272,11 +279,11 @@ export default function AtomBulbHero() {
 
       rayGroup.children.forEach((ray, i) => {
         const mesh = ray as THREE.Mesh;
-        const opacityBoost = isHovering ? 0.3 : 0;
+        const opacityBoost = activeHover ? 0.3 : 0;
         (mesh.material as THREE.MeshBasicMaterial).opacity = 0.5 + opacityBoost + Math.sin(elapsed * 3 + i) * 0.5;
       });
 
-      nucleus.scale.setScalar(1 + (isHovering ? 0.2 : 0) + Math.sin(elapsed * 3) * 0.05);
+      nucleus.scale.setScalar(1 + (activeHover ? 0.2 : 0) + Math.sin(elapsed * 3) * 0.05);
 
       renderer.render(scene, camera);
     }
