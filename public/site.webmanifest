@@ -1,0 +1,21 @@
+{
+  "name": "StratedgeX Performance Agency",
+  "short_name": "StratedgeX",
+  "description": "High-ROI Performance Marketing Systems. Google Ads, Meta Ads & CRO Landing Pages.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F4EE",
+  "theme_color": "#1E3A2E",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

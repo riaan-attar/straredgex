@@ -31,7 +31,7 @@ export const CaseStudies: React.FC = () => {
 
   return (
     <section ref={containerRef} id="case-studies" className="w-full bg-[#EEF2F5] border-b border-border-muted relative overflow-visible">
-      <div className="max-w-[1820px] mx-auto px-6 md:px-20 py-10 lg:py-14 relative">
+      <div className="max-w-[1820px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-10 lg:py-14 relative">
         
         {/* Section Corner Marker */}
         <div className="absolute top-[12px] right-[12px]">
@@ -64,8 +64,8 @@ export const CaseStudies: React.FC = () => {
           </div>
         </div>
 
-        {/* Stackup Cards Container - Streamlined spacing for smooth stacking */}
-        <div className="relative pb-4 lg:pb-6 flex flex-col">
+        {/* Stackup Cards Container - Generous spacing allows each card to stick and subsequent cards to layer over */}
+        <div className="relative pb-6 lg:pb-10 flex flex-col">
           {caseStudies.slice(0, 5).map((item, index, arr) => {
             const isEven = index % 2 === 0;
 
@@ -73,47 +73,47 @@ export const CaseStudies: React.FC = () => {
               <div
                 key={item.title}
                 id={`case-study-card-${index}`}
-                className="case-study-card-wrapper sticky mb-8 sm:mb-10 lg:mb-14 last:mb-0"
+                className="case-study-card-wrapper sticky mb-14 sm:mb-20 lg:mb-14 last:mb-0"
                 style={{
-                  top: '110px',
+                  top: 'clamp(76px, 10vh, 110px)',
                   zIndex: index + 1,
                 }}
               >
-                <article className="group bg-white border border-border-muted rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_75px_rgba(0,0,0,0.2)] transition-all duration-500 relative">
+                <article className="group bg-white border border-border-muted rounded-2xl overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.08)] lg:shadow-[0_20px_60px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_75px_rgba(0,0,0,0.2)] transition-all duration-500 relative">
                   
                   {/* Clean 2-Column Alternating Grid */}
-                  <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[520px] items-stretch">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 min-h-0 lg:min-h-[520px] items-stretch">
                     
                     {/* Visual Image Column (Alternates Left on Even, Right on Odd) */}
-                    <div className={`lg:col-span-5 relative min-h-[320px] sm:min-h-[380px] lg:min-h-full overflow-hidden flex flex-col justify-end p-8 sm:p-10 bg-forest ${
+                    <div className={`lg:col-span-5 relative h-52 sm:h-64 lg:h-auto min-h-[210px] sm:min-h-[260px] lg:min-h-full overflow-hidden flex flex-col justify-end p-4 sm:p-6 lg:p-10 bg-forest ${
                       isEven ? 'lg:order-1' : 'lg:order-2'
                     }`}>
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/65 to-forest/20"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-forest/95 via-forest/50 to-transparent"></div>
 
                       {/* Image Overlay Highlights */}
-                      <div className="relative z-10 text-bg-cream flex flex-col gap-4">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <span className="inline-flex items-center gap-1.5 bg-bg-cream/95 backdrop-blur px-3.5 py-1.5 rounded-full text-xs font-bold tracking-[0.16em] uppercase text-forest shadow-sm">
-                            <span className="material-symbols-outlined text-sm">{item.icon}</span>
+                      <div className="relative z-10 text-bg-cream flex flex-col gap-2 sm:gap-3">
+                        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                          <span className="inline-flex items-center gap-1 bg-bg-cream/95 backdrop-blur px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold tracking-[0.12em] uppercase text-forest shadow-sm">
+                            <span className="material-symbols-outlined text-xs">{item.icon}</span>
                             {item.category}
                           </span>
-                          <span className="inline-flex items-center gap-1.5 bg-brand-amber text-forest px-3.5 py-1.5 rounded-full text-xs font-bold tracking-[0.14em] uppercase shadow-sm">
-                            <span className="material-symbols-outlined text-sm">bolt</span>
+                          <span className="inline-flex items-center gap-1 bg-brand-amber text-forest px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold tracking-[0.12em] uppercase shadow-sm">
+                            <span className="material-symbols-outlined text-xs">bolt</span>
                             {item.metricBadge}
                           </span>
                         </div>
 
                         <div>
-                          <span className="text-xs uppercase tracking-[0.2em] font-semibold text-brand-amber">
+                          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold text-brand-amber">
                             Case Study {String(index + 1).padStart(2, '0')}
                           </span>
-                          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white mt-1">
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight text-white mt-0.5">
                             {item.title}
                           </h3>
                         </div>
@@ -121,79 +121,79 @@ export const CaseStudies: React.FC = () => {
                     </div>
 
                     {/* Content Column (Alternates Right on Even, Left on Odd) */}
-                    <div className={`lg:col-span-7 p-8 sm:p-10 lg:p-14 flex flex-col justify-between gap-8 bg-white ${
+                    <div className={`lg:col-span-7 p-4 sm:p-6 lg:p-10 xl:p-12 flex flex-col justify-between gap-3 sm:gap-4 bg-white ${
                       isEven ? 'lg:order-2' : 'lg:order-1'
                     }`}>
                       
                       {/* Top Headline & Category Tag */}
-                      <div className="flex flex-col gap-3">
+                      <div className="flex flex-col gap-1 sm:gap-1.5">
                         <div className="flex items-center justify-between gap-4">
-                          <span className="text-xs sm:text-sm uppercase tracking-[0.2em] font-extrabold text-rust flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-rust"></span>
+                          <span className="text-[11px] sm:text-xs uppercase tracking-[0.18em] font-extrabold text-rust flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-rust"></span>
                             {item.category}
                           </span>
-                          <span className="text-xs sm:text-sm uppercase tracking-[0.15em] font-bold text-ink/40">
+                          <span className="text-[11px] sm:text-xs uppercase tracking-[0.14em] font-bold text-ink/40">
                             {String(index + 1).padStart(2, '0')} / {String(arr.length).padStart(2, '0')}
                           </span>
                         </div>
 
-                        <h4 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-ink leading-[1.15] tracking-tight">
+                        <h4 className="text-base sm:text-xl lg:text-2xl xl:text-[26px] font-bold text-ink leading-snug tracking-tight">
                           {item.headline}
                         </h4>
 
-                        <p className="text-base sm:text-lg text-ink/75 leading-relaxed mt-1">
+                        <p className="text-xs sm:text-sm text-ink/75 leading-relaxed">
                           {item.summary}
                         </p>
                       </div>
 
                       {/* Prominent Highlighted Numbers Grid */}
-                      <div className="grid grid-cols-3 gap-4 p-5 sm:p-6 bg-[#F7F4EE] rounded-xl border border-border-muted">
+                      <div className="grid grid-cols-3 gap-2 sm:gap-3 p-2.5 sm:p-3.5 bg-[#F7F4EE] rounded-xl border border-border-muted">
                         {item.stats.map((stat, sIdx) => (
                           <div key={sIdx} className="flex flex-col">
-                            <span className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-forest tracking-tight">
+                            <span className="text-base sm:text-xl lg:text-2xl xl:text-3xl font-black text-forest tracking-tight truncate">
                               {stat.value}
                             </span>
-                            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-ink/60 mt-1">
+                            <span className="text-[9.5px] sm:text-[11px] font-bold uppercase tracking-wider text-ink/60 mt-0.5 truncate">
                               {stat.label}
                             </span>
                           </div>
                         ))}
                       </div>
 
-                      {/* Summarized Key Takeaways (2 Bullet Highlights) */}
-                      <div className="space-y-3">
+                      {/* Key Takeaways: Short, High-Impact Points */}
+                      <div className="space-y-1.5 sm:space-y-2">
                         {item.highlights.map((highlight, hIdx) => (
-                          <div key={hIdx} className="flex gap-3.5 items-start text-sm sm:text-base text-ink/85 leading-relaxed font-medium">
-                            <span className="mt-1 h-5 w-5 rounded-full bg-forest/10 text-forest flex items-center justify-center shrink-0">
-                              <span className="material-symbols-outlined text-sm font-bold text-forest">check</span>
+                          <div key={hIdx} className="flex gap-2 sm:gap-2.5 items-start text-xs sm:text-sm text-ink/85 leading-snug font-medium">
+                            <span className="mt-0.5 h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full bg-forest/10 text-forest flex items-center justify-center shrink-0">
+                              <span className="material-symbols-outlined text-[10px] sm:text-xs font-bold text-forest">check</span>
                             </span>
                             <span>{highlight}</span>
                           </div>
                         ))}
                       </div>
 
-                      {/* Bottom Action Row */}
-                      <div className="pt-6 border-t border-border-muted flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <div className="inline-flex items-center gap-2 text-forest font-bold text-sm sm:text-base">
-                          <span className="material-symbols-outlined text-lg text-rust">verified</span>
-                          <span>{item.cta}</span>
+                      {/* Bottom Action Row - Responsive Stack on Mobile to Prevent Overlap */}
+                      <div className="pt-2.5 sm:pt-3.5 border-t border-border-muted flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
+                        <div className="inline-flex items-center gap-1.5 text-forest font-bold text-xs sm:text-sm">
+                          <span className="material-symbols-outlined text-sm sm:text-base text-rust">verified</span>
+                          <span className="truncate">{item.cta}</span>
                         </div>
 
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
                           <a
                             href="/case-studies"
-                            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-ink hover:text-rust transition-colors px-3 py-2 rounded-md hover:bg-forest/5"
+                            className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1 text-xs sm:text-sm font-bold uppercase tracking-wider text-ink hover:text-rust transition-colors px-3 py-2 rounded-custom border border-border-muted hover:bg-forest/5 text-center"
                           >
                             <span>Full Story</span>
-                            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                            <span className="material-symbols-outlined text-xs sm:text-sm">arrow_forward</span>
                           </a>
 
                           <a
                             href="#contact-form-section"
-                            className="inline-flex items-center gap-2 bg-forest hover:bg-forest/90 text-brand-amber px-5 py-2.5 rounded-custom font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm"
+                            className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 bg-forest hover:bg-forest/90 text-brand-amber px-3.5 sm:px-4 py-2 rounded-custom font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm text-center"
                           >
                             <span>Build Similar</span>
-                            <span className="material-symbols-outlined text-sm">rocket_launch</span>
+                            <span className="material-symbols-outlined text-xs sm:text-sm">rocket_launch</span>
                           </a>
                         </div>
                       </div>
@@ -220,7 +220,7 @@ export const CaseStudies: React.FC = () => {
           <div className="flex flex-col gap-1.5 text-left w-full sm:w-auto">
             <div className="flex items-center gap-2 text-brand-amber text-xs font-bold uppercase tracking-[0.2em]">
               <span className="material-symbols-outlined text-base">auto_awesome</span>
-              <span>Complete Portfolio ({caseStudies.length} Case Studies)</span>
+              <span>Complete Portfolio</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
               Looking for more industry benchmarks & data?
@@ -233,7 +233,7 @@ export const CaseStudies: React.FC = () => {
             href="/case-studies"
             className="inline-flex items-center justify-center gap-3 bg-brand-amber text-forest hover:bg-white hover:text-forest px-6 sm:px-8 py-3.5 sm:py-4 rounded-custom font-bold uppercase tracking-[0.14em] text-xs sm:text-sm transition-all duration-300 shadow-md shrink-0 w-full sm:w-auto text-center"
           >
-            <span>View All {caseStudies.length} Case Studies</span>
+            <span>View All Case Studies</span>
             <span className="material-symbols-outlined text-base">arrow_forward</span>
           </a>
         </div>

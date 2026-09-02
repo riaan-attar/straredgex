@@ -228,7 +228,7 @@ export const GrowthArchitecture: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="mt-16 lg:mt-24 relative bg-white border border-border-muted rounded-[24px] lg:rounded-[32px] p-6 sm:p-10 lg:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.03)] overflow-hidden"
+      className="mt-14 lg:mt-24 relative bg-white border border-border-muted rounded-[20px] sm:rounded-[28px] lg:rounded-[32px] p-4 sm:p-8 lg:p-12 xl:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.03)] overflow-hidden"
     >
       {/* Architectural Corner Plus Markers */}
       <div className="absolute top-[12px] left-[12px] pointer-events-none">
@@ -248,16 +248,16 @@ export const GrowthArchitecture: React.FC = () => {
       <div className="absolute inset-0 bg-[radial-gradient(#D8D3C7_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-40"></div>
 
       {/* Top Header */}
-      <div className="relative z-10 flex flex-col items-center text-center mb-12 lg:mb-16">
-        <div className="arch-header-item inline-flex items-center gap-3 text-rust mb-4">
-          <span className="w-10 sm:w-14 h-px bg-rust"></span>
-          <span className="uppercase font-bold tracking-[0.22em] text-xs">
+      <div className="relative z-10 flex flex-col items-center text-center mb-10 lg:mb-16">
+        <div className="arch-header-item inline-flex items-center gap-3 text-rust mb-3 sm:mb-4">
+          <span className="w-8 sm:w-14 h-px bg-rust"></span>
+          <span className="uppercase font-bold tracking-[0.2em] text-[11px] sm:text-xs">
             The Blueprint • Our Strategy
           </span>
-          <span className="w-10 sm:w-14 h-px bg-rust"></span>
+          <span className="w-8 sm:w-14 h-px bg-rust"></span>
         </div>
 
-        <h3 className="arch-header-item text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-medium tracking-tight text-ink uppercase leading-[1.08] max-w-5xl">
+        <h3 className="arch-header-item text-2xl sm:text-4xl md:text-5xl lg:text-[52px] font-medium tracking-tight text-ink uppercase leading-[1.1] max-w-5xl">
           Engineered for <span className="text-rust font-semibold">Growth</span>. Built for{' '}
           <span className="text-forest font-semibold underline decoration-brand-amber decoration-4 underline-offset-4">
             Results
@@ -594,9 +594,9 @@ export const GrowthArchitecture: React.FC = () => {
       {/* ============================================================ */}
       <div
         ref={outcomesRef}
-        className="relative z-10 rounded-2xl bg-[#F7F4EE] border border-border-muted p-6 sm:p-8 shadow-sm"
+        className="relative z-10 rounded-2xl bg-[#F7F4EE] border border-border-muted p-4 sm:p-6 lg:p-8 shadow-sm"
       >
-        <div className="flex items-center justify-center gap-3 mb-6">
+        <div className="flex items-center justify-center gap-3 mb-5 sm:mb-6">
           <span className="w-8 sm:w-12 h-px bg-rust/50"></span>
           <span className="text-xs sm:text-sm font-bold tracking-[0.22em] text-rust uppercase">
             Outcomes That Matter
@@ -604,11 +604,11 @@ export const GrowthArchitecture: React.FC = () => {
           <span className="w-8 sm:w-12 h-px bg-rust/50"></span>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
           {outcomes.map((outcome) => (
             <div
               key={outcome.title}
-              className="flex items-center gap-3.5 p-3 sm:p-3.5 rounded-xl bg-white border border-border-muted/80 hover:border-rust/50 hover:shadow-md transition-all duration-300 group cursor-default"
+              className="flex items-center gap-3 sm:gap-3.5 p-3 sm:p-3.5 rounded-xl bg-white border border-border-muted/80 hover:border-rust/50 hover:shadow-md transition-all duration-300 group cursor-default"
             >
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden shadow-sm border border-border-muted/60 bg-white shrink-0 group-hover:scale-105 group-hover:shadow-md transition-all duration-300">
                 <img

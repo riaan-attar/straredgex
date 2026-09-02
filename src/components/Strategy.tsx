@@ -43,18 +43,18 @@ export const Strategy: React.FC = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} id="strategy" className="max-w-[1820px] mx-auto px-6 md:px-20 pt-24 pb-4 lg:pt-32 lg:pb-6 border-b border-border-muted relative bg-bg-cream">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+    <section ref={containerRef} id="strategy" className="max-w-[1820px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pt-16 sm:pt-24 pb-4 lg:pt-32 lg:pb-6 border-b border-border-muted relative bg-bg-cream">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
         {/* Left Column */}
-        <div ref={leftColRef} className="flex flex-col gap-10">
+        <div ref={leftColRef} className="flex flex-col gap-6 sm:gap-10">
           <div className="flex items-center gap-4 text-rust">
             <span className="w-12 h-px bg-rust"></span>
-            <span className="uppercase font-semibold tracking-widest text-sm">Our Strategy</span>
+            <span className="uppercase font-semibold tracking-widest text-xs sm:text-sm">Our Strategy</span>
           </div>
-          <h2 className="text-[38px] md:text-[60px] font-medium leading-heading tracking-heading text-ink">
+          <h2 className="text-[30px] sm:text-[42px] md:text-[60px] font-medium leading-heading tracking-heading text-ink">
             Architectural Precision in Marketing.
           </h2>
-          <p className="text-[20px] leading-body text-ink/70 max-w-xl">
+          <p className="text-base sm:text-[20px] leading-relaxed sm:leading-body text-ink/70 max-w-xl">
             We don't believe in "campaigns." We believe in systems. Every StratedgeX engagement starts with a structural audit of your market position, followed by the engineering of a data-driven growth blueprint.
           </p>
           

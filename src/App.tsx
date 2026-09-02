@@ -38,7 +38,8 @@ export const App: React.FC = () => {
         color="#FEBD59"
         accentColor="#FEBD59"
         count={4}
-        size={5}
+        size={2.5}
+        merge={0.82}
         speed={2.5}
         spread={100}
         wander={0.25}

@@ -41,9 +41,22 @@ export const Footer: React.FC = () => {
         </div>
         
         {/* Footer Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-border-muted/30 gap-6">
-          <p className="text-bg-cream/70 text-sm">© {new Date().getFullYear()} StratedgeX Performance Agency. All rights reserved.</p>
-          <div className="flex gap-8 text-sm text-bg-cream/70">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-border-muted/30 gap-6 text-sm text-bg-cream/70">
+          <p>© {new Date().getFullYear()} StratedgeX Performance Agency. All rights reserved.</p>
+          
+          <div className="flex items-center gap-2 font-medium">
+            <span>Developed with precision by</span>
+            <a
+              href="https://riaanattar.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-amber font-bold tracking-wide hover:underline hover:text-white transition-colors"
+            >
+              Riaan Attar
+            </a>
+          </div>
+
+          <div className="flex gap-8">
             <a href="#" className="hover:text-brand-amber transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-brand-amber transition-colors">Terms of Service</a>
           </div>

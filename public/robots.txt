@@ -1,0 +1,46 @@
+# ==============================================================================
+# StratedgeX Robots Configuration
+# Website: https://stratedgex.io
+# Description: Search engine crawling rules for optimal Google & Bing SERP ranking
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Allow: /case-studies
+Allow: /assets/
+Allow: /images/
+Allow: /favicon.svg
+Allow: /favicon.png
+Allow: /logo.png
+
+# Sitemaps
+Sitemap: https://stratedgex.io/sitemap.xml
+
+# Specific Crawlers
+User-agent: Googlebot
+Allow: /
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+Allow: /*.webp$
+
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /assets/
+Allow: /favicon.png
+Allow: /logo.png
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Host
+Host: https://stratedgex.io
