@@ -81,91 +81,141 @@ export const PortfolioPage: React.FC = () => {
       </section>
 
       <section className="max-w-[1820px] mx-auto px-6 md:px-20 pb-24 lg:pb-32 relative">
-        <div className="space-y-10">
+        <div className="space-y-12">
           {caseStudies.map((item, index) => {
             const reverse = index % 2 === 1;
             return (
               <article
                 key={item.title}
-                className={`portfolio-study grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white border border-border-muted rounded-custom overflow-hidden shadow-sm ${reverse ? 'lg:[&>*:first-child]:order-2' : ''}`}
+                className={`portfolio-study grid grid-cols-1 lg:grid-cols-12 gap-0 bg-white border border-border-muted rounded-custom overflow-hidden shadow-md ${reverse ? 'lg:[&>*:first-child]:order-2' : ''}`}
               >
-                <div className="relative min-h-[320px] lg:min-h-[560px] overflow-hidden">
+                {/* Visual Column */}
+                <div className="lg:col-span-5 relative min-h-[320px] lg:min-h-[560px] overflow-hidden flex flex-col justify-end p-6 md:p-10 bg-forest">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest/70 via-forest/10 to-transparent"></div>
-                  <div className="absolute left-6 top-6 inline-flex items-center gap-2 bg-bg-cream/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase text-forest">
-                    {item.category}
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 text-bg-cream">
-                    <div className="max-w-xl">
-                      <h2 className="text-3xl md:text-5xl font-medium leading-tight">{item.title}</h2>
-                      <p className="mt-4 text-bg-cream/85 text-base md:text-lg leading-relaxed">{item.summary}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/65 to-forest/20"></div>
+                  
+                  <div className="relative z-10 text-bg-cream flex flex-col gap-4">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="inline-flex items-center gap-1.5 bg-bg-cream/95 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase text-forest">
+                        <span className="material-symbols-outlined text-xs">{item.icon}</span>
+                        {item.category}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 bg-brand-amber text-forest px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase">
+                        <span className="material-symbols-outlined text-xs">bolt</span>
+                        {item.metricBadge}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h2 className="text-3xl md:text-5xl font-medium leading-tight text-white">{item.title}</h2>
+                      <p className="mt-3 text-bg-cream/85 text-base md:text-lg leading-relaxed">{item.summary}</p>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2 pt-4 border-t border-white/20">
+                      {item.stats.map((stat, sIdx) => (
+                        <div key={sIdx} className="flex flex-col">
+                          <span className="text-sm md:text-base font-bold text-brand-amber">{stat.value}</span>
+                          <span className="text-[10px] uppercase tracking-wider text-bg-cream/70 mt-0.5">{stat.label}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
 
-                <div className="p-6 md:p-10 lg:p-12 flex flex-col gap-8">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex flex-col gap-2">
-                      <span className="text-[11px] uppercase tracking-[0.2em] text-rust font-bold">Case Study Breakdown</span>
-                      <h3 className="text-2xl md:text-3xl font-bold text-ink">Strategy, execution, and outcome</h3>
+                {/* Content Column */}
+                <div className="lg:col-span-7 p-6 md:p-10 lg:p-12 flex flex-col justify-between gap-8">
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-center gap-2 text-rust text-xs font-bold uppercase tracking-[0.2em]">
+                        <span className="material-symbols-outlined text-sm">{item.icon}</span>
+                        <span>Case Study Breakdown</span>
+                      </div>
+                      <div className="text-right text-xs uppercase tracking-[0.15em] text-ink/45 font-semibold">
+                        <span>{String(index + 1).padStart(2, '0')}</span>
+                        <span> / {String(caseStudies.length).padStart(2, '0')}</span>
+                      </div>
                     </div>
-                    <div className="hidden md:flex flex-col items-end text-right text-xs uppercase tracking-[0.15em] text-ink/45">
-                      <span>{String(index + 1).padStart(2, '0')}</span>
-                      <span>of {String(caseStudies.length).padStart(2, '0')}</span>
-                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">{item.headline}</h3>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="rounded-custom bg-[#EEF2F5] border border-border-muted p-5">
-                      <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-forest mb-4">Challenge</div>
-                      <ul className="space-y-3">
-                        {item.challengeBullets.map((bullet) => (
-                          <li key={bullet} className="flex gap-3 text-sm leading-relaxed text-ink/75">
-                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-rust shrink-0"></span>
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 mt-2 border-t border-border-muted pt-8">
+                    {/* Left Col: Challenge & Approach */}
+                    <div className="space-y-8">
+                      <div>
+                        <div className="text-xs font-bold uppercase tracking-[0.18em] text-rust mb-4 flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-rust"></span>
+                          The Challenge
+                        </div>
+                        <ul className="space-y-3">
+                          {item.challengeBullets.map((bullet) => (
+                            <li key={bullet} className="flex gap-3 text-sm md:text-base leading-relaxed text-ink/80">
+                              <span className="material-symbols-outlined text-rust text-base mt-0.5">remove</span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div>
+                        <div className="text-xs font-bold uppercase tracking-[0.18em] text-forest mb-4 flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-forest"></span>
+                          Our Approach
+                        </div>
+                        <ul className="space-y-3">
+                          {item.approachBullets.map((bullet) => (
+                            <li key={bullet} className="flex gap-3 text-sm md:text-base leading-relaxed text-ink/80">
+                              <span className="material-symbols-outlined text-forest text-base mt-0.5">add</span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
 
-                    <div className="rounded-custom bg-[#EEF2F5] border border-border-muted p-5">
-                      <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-forest mb-4">Approach</div>
-                      <ul className="space-y-3">
-                        {item.approachBullets.map((bullet) => (
-                          <li key={bullet} className="flex gap-3 text-sm leading-relaxed text-ink/75">
-                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand-amber shrink-0"></span>
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="rounded-custom bg-[#EEF2F5] border border-border-muted p-5">
-                      <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-forest mb-4">Results</div>
-                      <ul className="space-y-3">
+                    {/* Right Col: High-Impact Results Card */}
+                    <div className="bg-forest rounded-2xl p-6 md:p-8 text-bg-cream shadow-[0_15px_40px_rgba(0,0,0,0.15)] flex flex-col justify-center">
+                      <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-amber mb-6 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-amber animate-pulse"></span>
+                        Key Outcomes
+                      </div>
+                      <ul className="space-y-4">
                         {item.resultBullets.map((bullet) => (
-                          <li key={bullet} className="flex gap-3 text-sm leading-relaxed text-ink/75">
-                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-forest shrink-0"></span>
+                          <li key={bullet} className="flex gap-3 text-base md:text-[17px] leading-relaxed font-medium">
+                            <span className="material-symbols-outlined text-brand-amber shrink-0 mt-0.5">check_circle</span>
                             <span>{bullet}</span>
                           </li>
                         ))}
                       </ul>
+                      
+                      <div className="mt-8 pt-6 border-t border-white/10">
+                         <div className="text-[10px] uppercase tracking-widest text-brand-amber/80 mb-2 font-bold">Strategic Impact</div>
+                         <div className="text-lg md:text-xl font-medium text-white italic leading-relaxed">
+                            "{item.highlights[0]}"
+                         </div>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-3 pt-2">
-                    <span className="inline-flex items-center gap-2 bg-brand-amber/15 text-forest px-3 py-2 rounded-full text-[11px] font-bold uppercase tracking-[0.15em]">
-                      <span className="material-symbols-outlined text-sm">rocket_launch</span>
-                      {item.cta}
-                    </span>
-                    <span className="inline-flex items-center gap-2 bg-forest/10 text-forest px-3 py-2 rounded-full text-[11px] font-bold uppercase tracking-[0.15em]">
-                      <span className="material-symbols-outlined text-sm">photo_library</span>
-                      Visual-led storytelling
-                    </span>
+                  <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-border-muted/70">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="inline-flex items-center gap-2 bg-brand-amber/15 text-forest px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.15em]">
+                        <span className="material-symbols-outlined text-sm">rocket_launch</span>
+                        {item.cta}
+                      </span>
+                    </div>
+
+                    <a
+                      href="/#contact-form-section"
+                      className="inline-flex items-center gap-2 bg-forest hover:bg-forest/90 text-brand-amber px-5 py-2.5 rounded-custom font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-sm"
+                    >
+                      <span>Inquire For Similar Scale</span>
+                      <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
                   </div>
                 </div>
               </article>

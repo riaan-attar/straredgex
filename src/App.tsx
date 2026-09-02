@@ -28,49 +28,57 @@ export const App: React.FC = () => {
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
 
-  if (pathname === '/case-studies') {
-    return <PortfolioPage />;
-  }
-
   return (
     <CurrencyProvider>
-      <div className="font-primary bg-neutral-background text-text-primary overflow-x-hidden min-h-screen flex flex-col w-full relative">
-      <CustomCursor />
-      <ScrollToTop />
-      <SwarmCursor
-        color="#FEBD59"
-        accentColor="#FEBD59"
-        count={4}
-        size={5}
-        speed={2.5}
-        spread={100}
-        wander={0.25}
-        trail={0.75}
-        scatterOnClick
-        targetElementId="bulb-anchor"
-        style={{
-          position: 'fixed',
-          inset: 0,
-          zIndex: 9999,
-          pointerEvents: 'none',
-        }}
-      />
-      <Navbar />
-      <main className="flex-grow">
-        <Hero />
-        <LeadQuoteCard />
-        <LogoCloud />
-        <Strategy />
-        <Capabilities />
-        <Impact />
-        <CaseStudies />
-        <CTASection />
-        <Testimonials />
-        <ContactForm />
-        <FAQ />
-      </main>
-      <Footer />
-    </div>
+      <div className="font-primary bg-neutral-background text-text-primary overflow-x-clip min-h-screen flex flex-col w-full relative">
+        <CustomCursor />
+        <ScrollToTop />
+        <SwarmCursor
+          color="#FEBD59"
+          accentColor="#FEBD59"
+          count={4}
+          size={5}
+          speed={2.5}
+          spread={100}
+          wander={0.25}
+          trail={0.75}
+          scatterOnClick
+          targetElementId="bulb-anchor"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9999,
+            pointerEvents: 'none',
+          }}
+        />
+        
+        {pathname === '/case-studies' ? (
+          <>
+            <main className="flex-grow">
+              <PortfolioPage />
+            </main>
+            <Footer />
+          </>
+        ) : (
+          <>
+            <Navbar />
+            <main className="flex-grow">
+              <Hero />
+              <LeadQuoteCard />
+              <LogoCloud />
+              <Strategy />
+              <Capabilities />
+              <Impact />
+              <CaseStudies />
+              <CTASection />
+              <Testimonials />
+              <ContactForm />
+              <FAQ />
+            </main>
+            <Footer />
+          </>
+        )}
+      </div>
     </CurrencyProvider>
   );
 };
