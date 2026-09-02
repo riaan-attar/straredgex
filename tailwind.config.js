@@ -51,7 +51,7 @@ export default {
         '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
       },
       spacing: {
-        'nav-height': '64px',
+        'nav-height': '76px',
       },
       animation: {
         'marquee': 'marquee 30s linear infinite',
