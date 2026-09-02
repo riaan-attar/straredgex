@@ -3,84 +3,9 @@ import PlusIcon from './PlusIcon';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { caseStudies } from '../data/caseStudies';
 
 gsap.registerPlugin(ScrollTrigger);
-
-type CaseStudy = {
-  title: string;
-  category: string;
-  image: string;
-  summary: string;
-  outcome: string;
-  cta: string;
-};
-
-const caseStudies: CaseStudy[] = [
-  {
-    title: "Matina’s Fashion Trunk",
-    category: "Fashion / Meta Ads",
-    image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80",
-    summary: "Scaled a premium ethnic-fashion brand from zero online presence by building the full Meta Ads and tracking stack.",
-    outcome: "Budget grew from ₹500/day to ₹10,000/day and stabilized at 5x ROAS after audience refinement.",
-    cta: "Built digital presence + daily sales"
-  },
-  {
-    title: "USA Furniture Brand",
-    category: "E-commerce / Google + Meta",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
-    summary: "Optimized a dropshipping furniture brand by fixing product feed quality and scaling multi-channel acquisition.",
-    outcome: "Google Shopping and PMax delivered consistent sales, while seasonal Meta campaigns unlocked revenue lifts.",
-    cta: "Feed fixes + multi-channel scale"
-  },
-  {
-    title: "U.S.-Based Regulatory Ratings Firm",
-    category: "Cold Email / Compliance",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
-    summary: "Built cold-email infrastructure from scratch in 72 hours and segmented 10,500 contacts across time zones.",
-    outcome: "10,500 emails delivered, ~50% open rate, 12% CTR, and 1.5% conversion rate on renewal offers.",
-    cta: "72-hour launch to outreach engine"
-  },
-  {
-    title: "Venture Capital & Funding Advisory",
-    category: "Lead Gen / Global Outreach",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
-    summary: "Generated high-quality global leads for funding seekers and onboarded channel partners through structured outreach.",
-    outcome: "500 outbound emails/day, ~41% open rate, ~14% CTR, and ~4% positive response rate.",
-    cta: "Predictable high-ticket pipeline"
-  },
-  {
-    title: "Music Production Company",
-    category: "YouTube Growth / Engagement",
-    image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
-    summary: "Ran launch-focused YouTube ads to increase subscribers, engagement, and visibility for new music drops.",
-    outcome: "Subscribers acquired at ₹5–₹10 each with stronger engagement and improved organic impressions.",
-    cta: "Subscribers + organic lift"
-  },
-  {
-    title: "Real Estate Lead Generation",
-    category: "White-Label Meta Ads",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
-    summary: "Rebuilt a cluttered campaign structure for a Mumbai agency handling multiple real-estate clients.",
-    outcome: "Cost per lead dropped from ~₹1300 to ~₹300 with better tracking and project segmentation.",
-    cta: "CPL reduction at scale"
-  },
-  {
-    title: "Miya Kebabs",
-    category: "QSR / Store Visits",
-    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80",
-    summary: "Drove walk-ins with geo-targeted store-visit campaigns and loyalty automation across four outlets.",
-    outcome: "Achieved ₹50–₹100 per store visit and generated ₹1 crore+ monthly revenue per outlet.",
-    cta: "Footfall + repeat revenue"
-  },
-  {
-    title: "The Saatvik Box",
-    category: "Meal Subscriptions / Brand Setup",
-    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80",
-    summary: "Created the brand identity, website, social presence, and automated ordering flow for a meal startup.",
-    outcome: "~300 subscriptions at ₹10 each, powered by Meta Ads and automated WhatsApp + payment integrations.",
-    cta: "Brand + automation + acquisition"
-  }
-];
 
 export const CaseStudies: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -142,17 +67,20 @@ export const CaseStudies: React.FC = () => {
 
           <div className="flex flex-col gap-4 lg:items-end">
             <a
-              href="https://github.com/SiddhantSali/Digital-Marketing-Portfolio"
-              target="_blank"
-              rel="noreferrer"
+              href="/case-studies"
               className="inline-flex items-center gap-3 bg-brand-amber text-forest hover:bg-forest hover:text-brand-amber border border-border-muted rounded-custom px-6 py-4 font-bold uppercase tracking-[0.15em] text-[12px] transition-all duration-300 shadow-md"
             >
               View full portfolio
               <span className="material-symbols-outlined text-base">open_in_new</span>
             </a>
-            <p className="text-ink/60 text-sm max-w-sm lg:text-right">
-              Source portfolio: Digital-Marketing-Portfolio
-            </p>
+            <a
+              href="https://github.com/SiddhantSali/Digital-Marketing-Portfolio"
+              target="_blank"
+              rel="noreferrer"
+              className="text-ink/60 text-sm hover:text-rust transition-colors"
+            >
+              Source portfolio on GitHub
+            </a>
           </div>
         </div>
 
@@ -180,14 +108,19 @@ export const CaseStudies: React.FC = () => {
                   {item.summary}
                 </p>
 
+                <div className="space-y-2">
+                  {item.sectionBullets.map((point) => (
+                    <div key={point} className="flex gap-3 items-start text-sm text-ink/75 leading-relaxed">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-rust shrink-0"></span>
+                      <span>{point}</span>
+                    </div>
+                  ))}
+                </div>
+
                 <div className="mt-auto pt-2 border-t border-border-muted/70">
                   <p className="text-forest font-semibold text-[15px] leading-relaxed">
-                    {item.outcome}
-                  </p>
-                  <div className="mt-4 inline-flex items-center gap-2 text-rust font-bold text-[12px] uppercase tracking-[0.15em]">
                     {item.cta}
-                    <span className="material-symbols-outlined text-base">arrow_forward</span>
-                  </div>
+                  </p>
                 </div>
               </div>
             </article>

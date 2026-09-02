@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import LogoCloud from './components/LogoCloud';
@@ -6,6 +6,7 @@ import Strategy from './components/Strategy';
 import Capabilities from './components/Capabilities';
 import Impact from './components/Impact';
 import CaseStudies from './components/CaseStudies';
+import PortfolioPage from './components/PortfolioPage';
 import FAQ from './components/FAQ';
 import CTASection from './components/CTASection';
 import Testimonials from './components/Testimonials';
@@ -19,6 +20,18 @@ import { CurrencyProvider } from './context/CurrencyContext';
 import LeadQuoteCard from './components/LeadQuoteCard';
 
 export const App: React.FC = () => {
+  const [pathname, setPathname] = useState(() => (typeof window !== 'undefined' ? window.location.pathname : '/'));
+
+  useEffect(() => {
+    const onPopState = () => setPathname(window.location.pathname);
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
+  if (pathname === '/case-studies') {
+    return <PortfolioPage />;
+  }
+
   return (
     <CurrencyProvider>
       <div className="font-primary bg-neutral-background text-text-primary overflow-x-hidden min-h-screen flex flex-col w-full relative">
