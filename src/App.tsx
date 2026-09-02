@@ -25,9 +25,34 @@ export const App: React.FC = () => {
   useEffect(() => {
     const onPopState = () => setPathname(window.location.pathname);
     window.addEventListener('popstate', onPopState);
-    return () => window.removeEventListener('popstate', onPopState);
+
+    // Client-side link interception for instant SPA navigation without full page reloads
+    const handleLinkClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest('a');
+      if (!target) return;
+      const href = target.getAttribute('href');
+      if (!href) return;
+
+      // Handle internal SPA routes like /case-studies, /case-study, /
+      if (href.startsWith('/') && !href.startsWith('//') && !target.target && !target.download && !href.startsWith('/#')) {
+        e.preventDefault();
+        if (window.location.pathname !== href) {
+          window.history.pushState({}, '', href);
+          setPathname(href);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    document.addEventListener('click', handleLinkClick);
+    return () => {
+      window.removeEventListener('popstate', onPopState);
+      document.removeEventListener('click', handleLinkClick);
+    };
   }, []);
 
+  const cleanPath = pathname.toLowerCase().replace(/\/+$/, '');
+  const isCaseStudiesPage = cleanPath === '/case-studies' || cleanPath === '/case-study' || cleanPath === '/portfolio';
 
   return (
     <CurrencyProvider>
@@ -55,7 +80,7 @@ export const App: React.FC = () => {
       />
       <Navbar />
       <main className="flex-grow">
-        {pathname === '/case-studies' ? (
+        {isCaseStudiesPage ? (
           <PortfolioPage />
         ) : (
           <>

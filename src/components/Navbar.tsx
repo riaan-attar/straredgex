@@ -58,7 +58,12 @@ const menuData: Record<'strategy' | 'capabilities', MenuContent> = {
 };
 
 export const Navbar: React.FC = () => {
-  const sectionPrefix = typeof window !== 'undefined' && window.location.pathname === '/case-studies' ? '/' : '';
+  const isCaseStudyRoute = typeof window !== 'undefined' && (
+    window.location.pathname.startsWith('/case-study') ||
+    window.location.pathname.startsWith('/case-studies') ||
+    window.location.pathname.startsWith('/portfolio')
+  );
+  const sectionPrefix = isCaseStudyRoute ? '/' : '';
   const [activeMenu, setActiveMenu] = useState<MegaMenuKey>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
