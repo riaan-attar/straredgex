@@ -5,6 +5,7 @@ import LogoCloud from './components/LogoCloud';
 import Strategy from './components/Strategy';
 import Capabilities from './components/Capabilities';
 import Impact from './components/Impact';
+import CaseStudies from './components/CaseStudies';
 import FAQ from './components/FAQ';
 import CTASection from './components/CTASection';
 import Testimonials from './components/Testimonials';
@@ -49,6 +50,7 @@ export const App: React.FC = () => {
         <Strategy />
         <Capabilities />
         <Impact />
+        <CaseStudies />
         <CTASection />
         <Testimonials />
         <ContactForm />
