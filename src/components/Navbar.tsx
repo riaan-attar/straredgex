@@ -58,11 +58,13 @@ const menuData: Record<'strategy' | 'capabilities', MenuContent> = {
 };
 
 export const Navbar: React.FC = () => {
+  const sectionPrefix = typeof window !== 'undefined' && window.location.pathname === '/case-studies' ? '/' : '';
   const [activeMenu, setActiveMenu] = useState<MegaMenuKey>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const currentContent = activeMenu ? menuData[activeMenu] : null;
-
+  const sectionHref = (hash: string) => (sectionPrefix ? `/${hash}` : hash);
+  const normalizeHref = (href: string) => (sectionPrefix && href.startsWith('#') ? `/${href}` : href);
 
   return (
     <header className="w-full flex flex-col items-center pt-6 md:pt-12 relative z-50 px-4 md:px-6" id="nav-container">
@@ -90,7 +92,7 @@ export const Navbar: React.FC = () => {
               className="h-full flex items-center group cursor-pointer border-r border-border-muted nav-item" 
               onMouseEnter={() => setActiveMenu('strategy')}
             >
-              <a href="#strategy" className="h-full flex items-center px-[30px] relative z-10 overflow-hidden w-full">
+              <a href={sectionHref('#strategy')} className="h-full flex items-center px-[30px] relative z-10 overflow-hidden w-full">
                 <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-ink group-hover:text-rust group-hover:-translate-y-full transition-all duration-500 ease-in-out">Strategy</span>
                 <div className="absolute inset-0 bg-forest flex items-center px-[30px] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
                   <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-brand-amber">Strategy</span>
@@ -103,7 +105,7 @@ export const Navbar: React.FC = () => {
               className="h-full flex items-center group cursor-pointer border-r border-border-muted nav-item"
               onMouseEnter={() => setActiveMenu('capabilities')}
             >
-              <a href="#capabilities" className="h-full flex items-center px-[30px] relative z-10 overflow-hidden w-full">
+              <a href={sectionHref('#capabilities')} className="h-full flex items-center px-[30px] relative z-10 overflow-hidden w-full">
                 <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-ink group-hover:text-rust group-hover:-translate-y-full transition-all duration-500 ease-in-out">Capabilities</span>
                 <div className="absolute inset-0 bg-forest flex items-center px-[30px] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
                   <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-brand-amber">Capabilities</span>
@@ -113,7 +115,7 @@ export const Navbar: React.FC = () => {
 
             {/* Impact item */}
             <div className="h-full flex items-center group cursor-pointer border-r border-border-muted" onMouseEnter={() => setActiveMenu(null)}>
-              <a href="#impact" className="h-full flex items-center px-[30px] relative z-10 overflow-hidden w-full">
+              <a href={sectionHref('#impact')} className="h-full flex items-center px-[30px] relative z-10 overflow-hidden w-full">
                 <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-ink group-hover:text-rust group-hover:-translate-y-full transition-all duration-500 ease-in-out">Impact</span>
                 <div className="absolute inset-0 bg-forest flex items-center px-[30px] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
                   <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-brand-amber">Impact</span>
@@ -123,7 +125,7 @@ export const Navbar: React.FC = () => {
 
             {/* FAQ item */}
             <div className="h-full flex items-center group cursor-pointer border-r border-border-muted" onMouseEnter={() => setActiveMenu(null)}>
-              <a href="#faq" className="h-full flex items-center px-[30px] relative z-10 overflow-hidden w-full">
+              <a href={sectionHref('#faq')} className="h-full flex items-center px-[30px] relative z-10 overflow-hidden w-full">
                 <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-ink group-hover:text-rust group-hover:-translate-y-full transition-all duration-500 ease-in-out">FAQ</span>
                 <div className="absolute inset-0 bg-forest flex items-center px-[30px] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
                   <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-brand-amber">FAQ</span>
@@ -134,12 +136,12 @@ export const Navbar: React.FC = () => {
 
           {/* Action Section */}
           <div className="flex items-center h-full shrink-0 relative">
-            <a href="#case-studies" className="hidden xl:flex items-center px-8 h-full text-[13px] font-bold uppercase tracking-[0.1em] text-ink border-l border-border-muted hover:text-rust transition-colors">
+            <a href={sectionHref('#case-studies')} className="hidden xl:flex items-center px-8 h-full text-[13px] font-bold uppercase tracking-[0.1em] text-ink border-l border-border-muted hover:text-rust transition-colors">
               CASE STUDY
             </a>
             
             <div className="h-full hidden sm:flex items-center group cursor-pointer overflow-hidden border-l border-border-muted min-w-0 md:min-w-[180px]">
-              <a href="#contact-form-section" className="h-full w-full flex items-center justify-center px-6 md:px-0 relative z-10 overflow-hidden bg-brand-amber">
+              <a href={sectionHref('#contact-form-section')} className="h-full w-full flex items-center justify-center px-6 md:px-0 relative z-10 overflow-hidden bg-brand-amber">
                 <span className="text-[11px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-forest group-hover:-translate-y-full transition-transform duration-500 ease-in-out whitespace-nowrap">Inquire Now</span>
                 <div className="absolute inset-0 bg-forest flex items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
                   <span className="text-[11px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-brand-amber whitespace-nowrap">Inquire Now</span>
@@ -175,7 +177,7 @@ export const Navbar: React.FC = () => {
                       style={{ backgroundImage: `url('${currentContent.img}')` }}
                     ></div>
                     <p className="text-2xl font-normal leading-tight tracking-tight text-ink">{currentContent.desc}</p>
-                    <a href="#strategy" className="inline-flex items-center text-[10px] font-bold uppercase tracking-widest border-b-2 border-rust text-rust pb-1 hover:text-forest hover:border-forest transition-colors">
+                    <a href={normalizeHref('#strategy')} className="inline-flex items-center text-[10px] font-bold uppercase tracking-widest border-b-2 border-rust text-rust pb-1 hover:text-forest hover:border-forest transition-colors">
                       Discover More
                     </a>
                   </div>
@@ -190,7 +192,7 @@ export const Navbar: React.FC = () => {
                     <ul className="flex flex-col">
                       {currentContent.c1l.map((item, idx) => (
                         <li key={idx} className="relative h-[48px] border-b border-border-muted last:border-b-0 overflow-hidden w-full">
-                          <a href={item.href} className="group block h-full w-full">
+                          <a href={normalizeHref(item.href)} className="group block h-full w-full">
                             <div className="h-full flex items-center px-10 relative z-10 transition-transform duration-500 group-hover:-translate-y-full">
                               <span className="text-[12px] uppercase tracking-[0.05em] text-ink font-bold group-hover:text-rust">{item.label}</span>
                             </div>
@@ -211,7 +213,7 @@ export const Navbar: React.FC = () => {
                     <ul className="flex flex-col">
                       {currentContent.c2l.map((item, idx) => (
                         <li key={idx} className="relative h-[48px] border-b border-border-muted last:border-b-0 overflow-hidden w-full">
-                          <a href={item.href} className="group block h-full w-full">
+                          <a href={normalizeHref(item.href)} className="group block h-full w-full">
                             <div className="h-full flex items-center px-10 relative z-10 transition-transform duration-500 group-hover:-translate-y-full">
                               <span className="text-[12px] uppercase tracking-[0.05em] text-ink font-bold group-hover:text-rust">{item.label}</span>
                             </div>
@@ -247,12 +249,12 @@ export const Navbar: React.FC = () => {
           </button>
         </div>
         <nav className="flex flex-col gap-8">
-          <a href="#strategy" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-ink hover:text-rust">Our Strategy</a>
-          <a href="#capabilities" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-ink hover:text-rust">Capabilities</a>
-          <a href="#impact" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-ink hover:text-rust">Client Impact</a>
-          <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-ink hover:text-rust">FAQ</a>
+          <a href={sectionHref('#strategy')} onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-ink hover:text-rust">Our Strategy</a>
+          <a href={sectionHref('#capabilities')} onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-ink hover:text-rust">Capabilities</a>
+          <a href={sectionHref('#impact')} onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-ink hover:text-rust">Client Impact</a>
+          <a href={sectionHref('#faq')} onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium text-ink hover:text-rust">FAQ</a>
           <hr className="border-border-muted" />
-          <a href="#contact-form-section" onClick={() => setMobileMenuOpen(false)} className="bg-brand-amber text-forest h-16 rounded-custom flex items-center justify-center text-xl font-bold">
+          <a href={sectionHref('#contact-form-section')} onClick={() => setMobileMenuOpen(false)} className="bg-brand-amber text-forest h-16 rounded-custom flex items-center justify-center text-xl font-bold">
             Partner With Us
           </a>
         </nav>
