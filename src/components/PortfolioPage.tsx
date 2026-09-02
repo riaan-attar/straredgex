@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import Navbar from './Navbar';
 import PlusIcon from './PlusIcon';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -42,25 +43,11 @@ export const PortfolioPage: React.FC = () => {
 
   return (
     <div ref={pageRef} className="min-h-screen bg-bg-cream text-ink overflow-hidden">
-      <section className="max-w-[1820px] mx-auto px-6 md:px-20 pt-10 md:pt-14 pb-16 relative">
+      <Navbar />
+
+      <section className="max-w-[1820px] mx-auto px-6 md:px-20 pt-12 md:pt-16 pb-16 relative">
         <div className="absolute top-[8px] right-[8px]">
           <PlusIcon />
-        </div>
-
-        <div className="flex items-center justify-between gap-4 mb-10">
-          <a href="/" className="inline-flex items-center gap-2 text-ink font-bold uppercase tracking-[0.15em] text-[12px] hover:text-rust transition-colors">
-            <span className="material-symbols-outlined text-base">arrow_back</span>
-            Back Home
-          </a>
-          <a
-            href="https://github.com/SiddhantSali/Digital-Marketing-Portfolio"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 bg-brand-amber text-forest hover:bg-forest hover:text-brand-amber border border-border-muted rounded-custom px-5 py-3 font-bold uppercase tracking-[0.15em] text-[11px] transition-all duration-300 shadow-md"
-          >
-            Open source portfolio
-            <span className="material-symbols-outlined text-base">open_in_new</span>
-          </a>
         </div>
 
         <div ref={heroRef} className="grid grid-cols-1 lg:grid-cols-[1.2fr,0.8fr] gap-10 items-end">

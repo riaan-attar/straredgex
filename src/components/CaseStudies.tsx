@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const CaseStudies: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLElement | null)[]>([]);
 
   useGSAP(() => {
     gsap.fromTo(headerRef.current,
@@ -42,6 +43,21 @@ export const CaseStudies: React.FC = () => {
         }
       }
     );
+
+    const cards = cardRefs.current.filter(Boolean) as HTMLElement[];
+    cards.forEach((card, index) => {
+      gsap.to(card, {
+        scale: 1 - index * 0.015,
+        y: index * 16,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 75%',
+          end: 'bottom 20%',
+          scrub: true,
+        },
+      });
+    });
   }, { scope: containerRef });
 
   return (
@@ -84,9 +100,14 @@ export const CaseStudies: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          {caseStudies.map((item) => (
-            <article key={item.title} className="case-study-card group bg-white border border-border-muted rounded-custom overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col min-h-[100%]">
+        <div className="relative pb-[30vh]">
+          {caseStudies.map((item, index) => (
+            <article
+              key={item.title}
+              ref={(el) => { cardRefs.current[index] = el; }}
+              className="case-study-card group bg-white border border-border-muted rounded-custom overflow-hidden shadow-2xl flex flex-col min-h-[100%] sticky top-24 md:top-28 mb-10 will-change-transform"
+              style={{ zIndex: index + 1 }}
+            >
               <div className="relative h-52 overflow-hidden">
                 <img
                   src={item.image}
