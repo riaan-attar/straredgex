@@ -97,15 +97,15 @@ export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const adSpendStat: StatMetric = isIndia
     ? {
         prefix: '₹',
-        target: 400,
+        target: 1,
         suffix: 'Cr+',
         title: 'Ad Spend Managed',
         description: 'Aggressively optimized across Google and Meta platforms.',
       }
     : {
         prefix: '$',
-        target: 50,
-        suffix: 'M+',
+        target: 1,
+        suffix: 'Mn+',
         title: 'Ad Spend Managed',
         description: 'Aggressively optimized across Google and Meta platforms.',
       };
@@ -125,7 +125,7 @@ export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     description: 'Measured across our top-tier performance portfolio.',
   };
 
-  const faqMinSpendText = isIndia ? '₹8,00,000/month' : '$10,000/month';
+  const faqMinSpendText = isIndia ? '₹50k' : '$50k';
 
   return (
     <CurrencyContext.Provider

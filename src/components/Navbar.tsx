@@ -11,9 +11,9 @@ interface MenuContent {
   desc: string;
   img: string;
   c1t: string;
-  c1l: string[];
+  c1l: { label: string; href: string }[];
   c2t: string;
-  c2l: string[];
+  c2l: { label: string; href: string }[];
 }
 
 const menuData: Record<'strategy' | 'capabilities', MenuContent> = {
@@ -22,18 +22,38 @@ const menuData: Record<'strategy' | 'capabilities', MenuContent> = {
     desc: "Architectural precision in performance marketing. We engineer high-converting systems.",
     img: "https://images.unsplash.com/photo-1622737133809-d95047b9e673?ixid=M3w4NjU0NDF8MHwxfHNlYXJjaHwxfHxNaW5pbWFsaXN0fGVufDB8fHx8MTc3NDI0Mjc2Mnww&ixlib=rb-4.1.0&w=800&h=450&fit=crop&fm=jpg&q=80",
     c1t: "Methodology",
-    c1l: ["Ad Strategy", "Funnel Design", "Budget Scaling", "Audience Targeting"],
+    c1l: [
+      { label: "Ad Strategy", href: "#strategy" },
+      { label: "Funnel Design", href: "#contact-form-section" },
+      { label: "Budget Scaling", href: "#impact" },
+      { label: "Audience Targeting", href: "#capabilities" },
+    ],
     c2t: "Insights",
-    c2l: ["Case Studies", "Strategic Whitepapers", "System Design Theory", "Success Metrics"]
+    c2l: [
+      { label: "Case Studies", href: "#testimonials" },
+      { label: "Strategic Whitepapers", href: "#faq" },
+      { label: "System Design Theory", href: "#strategy" },
+      { label: "Success Metrics", href: "#impact" },
+    ]
   },
   capabilities: {
     title: "Core Capabilities",
     desc: "Specialized divisions operating with surgical precision to scale your revenue.",
     img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?ixid=M3w4NjU0NDF8MHwxfHNlYXJjaHwxfHxDbGVhbnxlbnwwfHx8fDE3NzQyNDI3NjJ8MA&ixlib=rb-4.1.0&w=800&h=450&fit=crop&fm=jpg&q=80",
     c1t: "Solutions",
-    c1l: ["Google Ads Management", "Meta Ads Management", "Landing Page Dev", "Creative Testing"],
+    c1l: [
+      { label: "Google Ads Management", href: "#capabilities" },
+      { label: "Meta Ads Management", href: "#capabilities" },
+      { label: "Landing Page Dev", href: "#contact-form-section" },
+      { label: "Email Marketing", href: "#contact-form-section" },
+    ],
     c2t: "Integration",
-    c2l: ["API Connectivity", "CRM Optimization", "Funnel Automation", "Data Visualization"]
+    c2l: [
+      { label: "API Connectivity", href: "#contact-form-section" },
+      { label: "CRM Optimization", href: "#contact-form-section" },
+      { label: "Funnel Automation", href: "#strategy" },
+      { label: "Data Visualization", href: "#impact" },
+    ]
   }
 };
 
@@ -168,15 +188,15 @@ export const Navbar: React.FC = () => {
                   <div className="border-r border-border-muted py-10">
                     <h4 className="text-[10px] font-bold uppercase tracking-[0.25em] text-ink/70 mb-8 px-10">{currentContent.c1t}</h4>
                     <ul className="flex flex-col">
-                      {currentContent.c1l.map((linkText, idx) => (
+                      {currentContent.c1l.map((item, idx) => (
                         <li key={idx} className="relative h-[48px] border-b border-border-muted last:border-b-0 overflow-hidden w-full">
-                          <a href="#" className="group block h-full w-full">
+                          <a href={item.href} className="group block h-full w-full">
                             <div className="h-full flex items-center px-10 relative z-10 transition-transform duration-500 group-hover:-translate-y-full">
-                              <span className="text-[12px] uppercase tracking-[0.05em] text-ink font-bold group-hover:text-rust">{linkText}</span>
+                              <span className="text-[12px] uppercase tracking-[0.05em] text-ink font-bold group-hover:text-rust">{item.label}</span>
                             </div>
                             <div className="absolute inset-0 bg-forest h-full flex items-center px-10 translate-y-full transition-transform duration-500 group-hover:translate-y-0">
                               <span className="text-[12px] uppercase tracking-[0.05em] text-brand-amber font-bold flex justify-between w-full items-center">
-                                {linkText}
+                                {item.label}
                                 <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                               </span>
                             </div>
@@ -189,15 +209,15 @@ export const Navbar: React.FC = () => {
                   <div className="py-10">
                     <h4 className="text-[10px] font-bold uppercase tracking-[0.25em] text-ink/70 mb-8 px-10">{currentContent.c2t}</h4>
                     <ul className="flex flex-col">
-                      {currentContent.c2l.map((linkText, idx) => (
+                      {currentContent.c2l.map((item, idx) => (
                         <li key={idx} className="relative h-[48px] border-b border-border-muted last:border-b-0 overflow-hidden w-full">
-                          <a href="#" className="group block h-full w-full">
+                          <a href={item.href} className="group block h-full w-full">
                             <div className="h-full flex items-center px-10 relative z-10 transition-transform duration-500 group-hover:-translate-y-full">
-                              <span className="text-[12px] uppercase tracking-[0.05em] text-ink font-bold group-hover:text-rust">{linkText}</span>
+                              <span className="text-[12px] uppercase tracking-[0.05em] text-ink font-bold group-hover:text-rust">{item.label}</span>
                             </div>
                             <div className="absolute inset-0 bg-forest h-full flex items-center px-10 translate-y-full transition-transform duration-500 group-hover:translate-y-0">
                               <span className="text-[12px] uppercase tracking-[0.05em] text-brand-amber font-bold flex justify-between w-full items-center">
-                                {linkText}
+                                {item.label}
                                 <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                               </span>
                             </div>

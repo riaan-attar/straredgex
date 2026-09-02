@@ -58,7 +58,7 @@ export const Hero: React.FC = () => {
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-rust">Performance Engine</span>
             </div>
             <h1 ref={headlineRef} className="text-[42px] sm:text-[54px] md:text-[74px] font-medium leading-[1.1] md:leading-heading tracking-[-1.5px] md:tracking-heading text-ink">
-              Scaling Revenue with <span className="relative inline-block">Precision Performance<span className="absolute bottom-1 left-0 w-full h-3 bg-brand-amber/40 -z-10 rounded-sm"></span></span> Marketing.
+              Escape Invisibility, Embrace Impact
             </h1>
             <p ref={subtextRef} className="text-[18px] md:text-[22px] leading-relaxed md:leading-body tracking-subheading text-ink/70 max-w-[700px]">
               StratedgeX is a data-driven performance agency specializing in Google Ads, Meta Ads, and high-converting landing pages to engineer predictable growth.

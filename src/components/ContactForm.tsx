@@ -84,7 +84,7 @@ export const ContactForm: React.FC = () => {
             Initiate Your Structural Audit.
           </h2>
           <p className="text-[20px] leading-body text-ink/70 max-w-xl">
-            We partner with Series B+ startups and global enterprises ready to build acquisition engines with surgical precision. Complete the form to connect with our operations team.
+            We partner with startups and global enterprises ready to build acquisition engines with surgical precision. Complete the form to connect with our operations team.
           </p>
           <div className="flex flex-col gap-4 text-ink font-medium mt-4">
             <div className="flex items-center gap-3">
@@ -93,7 +93,7 @@ export const ContactForm: React.FC = () => {
             </div>
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-rust">location_on</span>
-              <span>HQ: London, UK</span>
+              <span>HQ: Mumbai, India</span>
             </div>
           </div>
         </div>

@@ -44,15 +44,15 @@ export const App: React.FC = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <LeadQuoteCard />
         <LogoCloud />
         <Strategy />
-        <LeadQuoteCard />
         <Capabilities />
         <Impact />
-        <FAQ />
         <CTASection />
         <Testimonials />
         <ContactForm />
+        <FAQ />
       </main>
       <Footer />
     </div>

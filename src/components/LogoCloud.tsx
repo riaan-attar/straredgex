@@ -1,12 +1,14 @@
 import React from 'react';
 
 const brandLogos = [
-  "NEXUS.CO",
-  "ORBITAL",
-  "QUANTUM",
-  "VANTAGE",
-  "EQUINOX",
-  "ZENITH"
+  "American Ratings",
+  "Namm Capital",
+  "Saatvik Box",
+  "Sangvi Contractors",
+  "Thinkstart Australia",
+  "ZOCO Mediaworks",
+  "Abil Group",
+  "Imperial Atria"
 ];
 
 export const LogoCloud: React.FC = () => {

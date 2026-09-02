@@ -16,45 +16,59 @@ interface Testimonial {
 
 const testimonialsData: Testimonial[] = [
   {
-    logo: "NEXUS.CO",
+    logo: "American Ratings",
     rating: "4.9",
     quote: "StratedgeX completely transformed our Meta Ads. Combined with their custom landing pages, our acquisition costs dropped by 45% in the first month.",
     name: "Kate Davis",
     tiltClass: "hover:-rotate-6 hover:scale-[1.05]"
   },
   {
-    logo: "ORBITAL",
+    logo: "Namm Capital",
     rating: "4.8",
     quote: "Their Google Ads management is unmatched. The high-converting landing pages they built helped us achieve a 3.5x ROAS at scale.",
     name: "Martin Kazlauskas",
     tiltClass: "hover:rotate-3 hover:scale-[1.05]"
   },
   {
-    logo: "QUANTUM",
+    logo: "Saatvik Box",
     rating: "4.9",
     quote: "StratedgeX represents the highest standards of performance marketing. An indispensable partner for anyone serious about revenue growth.",
     name: "Sanjay Sharma",
     tiltClass: "hover:-rotate-3 hover:scale-[1.05]"
   },
   {
-    logo: "VANTAGE",
+    logo: "Sangvi Contractors",
     rating: "4.7",
     quote: "High-tier performance media at its best. They don't run generic campaigns; they construct high-precision conversion systems that scale rapidly.",
     name: "Tawanna Afumba",
     tiltClass: "hover:rotate-6 hover:scale-[1.05]"
   },
   {
-    logo: "EQUINOX",
+    logo: "Thinkstart Australia",
     rating: "4.9",
     quote: "Their landing page development team is incredible. Our conversion rates doubled within weeks of launching the new funnel.",
     name: "Larry King",
     tiltClass: "hover:-rotate-6 hover:scale-[1.05]"
   },
   {
-    logo: "ZENITH",
+    logo: "ZOCO Mediaworks",
     rating: "4.8",
     quote: "Aggressive A/B testing and surgical ad buying by StratedgeX have allowed us to scale our ad spend profitably month over month.",
     name: "Fatima Mohamed",
+    tiltClass: "hover:rotate-3 hover:scale-[1.05]"
+  },
+  {
+    logo: "Abil Group",
+    rating: "4.9",
+    quote: "The team brought structure, speed, and clarity to our paid campaigns. Performance improved almost immediately.",
+    name: "Nadia Patel",
+    tiltClass: "hover:-rotate-6 hover:scale-[1.05]"
+  },
+  {
+    logo: "Imperial Atria",
+    rating: "4.8",
+    quote: "Their strategic approach helped us unlock better lead quality and stronger ROI across every channel.",
+    name: "Ethan Morgan",
     tiltClass: "hover:rotate-3 hover:scale-[1.05]"
   }
 ];

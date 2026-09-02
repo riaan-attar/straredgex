@@ -20,7 +20,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: "How quickly can we launch our Google and Meta campaigns?",
-    answer: "Our standard onboarding to launch timeline is 14-21 days. This includes a full structural audit of your current ad accounts, the development of the new landing pages, and the engineering of the new campaign architecture."
+    answer: "Our standard onboarding to launch timeline is 3 days. This includes a full structural audit of your current ad accounts, the development of the new landing pages, and the engineering of the new campaign architecture."
   },
   {
     question: "How do you track conversions across platforms?",

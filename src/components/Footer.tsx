@@ -32,29 +32,12 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col gap-6">
             <h4 className="text-white font-semibold text-lg uppercase tracking-wider">Contact</h4>
             <ul className="flex flex-col gap-4 text-bg-cream/80">
-              <li>HQ: London, UK</li>
+              <li>HQ: Mumbai, India</li>
               <li>partnerships@stratedgex.io</li>
               <li>+44 20 7946 0123</li>
             </ul>
           </div>
 
-          {/* Newsletter Form */}
-          <div className="flex flex-col gap-6">
-            <h4 className="text-white font-semibold text-lg uppercase tracking-wider">Newsletter</h4>
-            <div className="flex flex-col gap-4">
-              <p className="text-bg-cream/80 text-sm">Get our monthly digest on performance marketing tactics.</p>
-              <form onSubmit={(e) => e.preventDefault()} className="flex items-center gap-2">
-                <input 
-                  type="email" 
-                  placeholder="Email Address" 
-                  className="bg-forest/60 border border-border-muted/30 rounded-custom px-4 py-3 w-full focus:outline-none focus:border-brand-amber text-sm text-white placeholder:text-bg-cream/50"
-                />
-                <button type="submit" className="bg-brand-amber text-forest p-3 rounded-custom flex items-center justify-center hover:bg-white transition-colors">
-                  <span className="material-symbols-outlined font-bold">chevron_right</span>
-                </button>
-              </form>
-            </div>
-          </div>
         </div>
         
         {/* Footer Bottom Bar */}
