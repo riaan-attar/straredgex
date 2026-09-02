@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import Navbar from './Navbar';
+
 import PlusIcon from './PlusIcon';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -42,8 +42,7 @@ export const PortfolioPage: React.FC = () => {
   }, { scope: pageRef });
 
   return (
-    <div ref={pageRef} className="min-h-screen bg-bg-cream text-ink overflow-hidden">
-      <Navbar />
+    <div ref={pageRef} className="bg-bg-cream text-ink pb-10">
 
       <section className="max-w-[1820px] mx-auto px-6 md:px-20 pt-12 md:pt-16 pb-16 relative">
         <div className="absolute top-[8px] right-[8px]">
@@ -143,61 +142,62 @@ export const PortfolioPage: React.FC = () => {
                     <h3 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">{item.headline}</h3>
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 mt-2 border-t border-border-muted pt-8">
-                    {/* Left Col: Challenge & Approach */}
-                    <div className="space-y-8">
-                      <div>
-                        <div className="text-xs font-bold uppercase tracking-[0.18em] text-rust mb-4 flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-rust"></span>
-                          The Challenge
-                        </div>
-                        <ul className="space-y-3">
-                          {item.challengeBullets.map((bullet) => (
-                            <li key={bullet} className="flex gap-3 text-sm md:text-base leading-relaxed text-ink/80">
-                              <span className="material-symbols-outlined text-rust text-base mt-0.5">remove</span>
-                              <span>{bullet}</span>
-                            </li>
-                          ))}
-                        </ul>
+                  <div className="space-y-3 bg-[#F7F4EE] p-5 md:p-6 rounded-xl border border-border-muted/50">
+                    <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-forest mb-4">Key Highlights</h4>
+                    {item.highlights.map((highlight, hIdx) => (
+                      <div key={hIdx} className="flex gap-3 items-start text-sm md:text-base text-ink/85 leading-relaxed font-medium">
+                        <span className="mt-0.5 h-5 w-5 rounded-full bg-brand-amber/30 text-forest flex items-center justify-center shrink-0">
+                          <span className="material-symbols-outlined text-xs font-bold text-forest">check</span>
+                        </span>
+                        <span>{highlight}</span>
                       </div>
+                    ))}
+                  </div>
 
-                      <div>
-                        <div className="text-xs font-bold uppercase tracking-[0.18em] text-forest mb-4 flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-forest"></span>
-                          Our Approach
-                        </div>
-                        <ul className="space-y-3">
-                          {item.approachBullets.map((bullet) => (
-                            <li key={bullet} className="flex gap-3 text-sm md:text-base leading-relaxed text-ink/80">
-                              <span className="material-symbols-outlined text-forest text-base mt-0.5">add</span>
-                              <span>{bullet}</span>
-                            </li>
-                          ))}
-                        </ul>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div className="rounded-custom bg-[#EEF2F5] border border-border-muted p-5">
+                      <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-forest mb-3 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-rust"></span>
+                        Challenge
                       </div>
-                    </div>
-
-                    {/* Right Col: High-Impact Results Card */}
-                    <div className="bg-forest rounded-2xl p-6 md:p-8 text-bg-cream shadow-[0_15px_40px_rgba(0,0,0,0.15)] flex flex-col justify-center">
-                      <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-amber mb-6 flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-brand-amber animate-pulse"></span>
-                        Key Outcomes
-                      </div>
-                      <ul className="space-y-4">
-                        {item.resultBullets.map((bullet) => (
-                          <li key={bullet} className="flex gap-3 text-base md:text-[17px] leading-relaxed font-medium">
-                            <span className="material-symbols-outlined text-brand-amber shrink-0 mt-0.5">check_circle</span>
+                      <ul className="space-y-2.5">
+                        {item.challengeBullets.map((bullet) => (
+                          <li key={bullet} className="flex gap-2 text-xs md:text-sm leading-relaxed text-ink/75">
+                            <span>•</span>
                             <span>{bullet}</span>
                           </li>
                         ))}
                       </ul>
-                      
-                      <div className="mt-8 pt-6 border-t border-white/10">
-                         <div className="text-[10px] uppercase tracking-widest text-brand-amber/80 mb-2 font-bold">Strategic Impact</div>
-                         <div className="text-lg md:text-xl font-medium text-white italic leading-relaxed">
-                            "{item.highlights[0]}"
-                         </div>
+                    </div>
+
+                    <div className="rounded-custom bg-[#EEF2F5] border border-border-muted p-5">
+                      <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-forest mb-3 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-amber"></span>
+                        Approach
                       </div>
+                      <ul className="space-y-2.5">
+                        {item.approachBullets.map((bullet) => (
+                          <li key={bullet} className="flex gap-2 text-xs md:text-sm leading-relaxed text-ink/75">
+                            <span>•</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="rounded-custom bg-[#EEF2F5] border border-border-muted p-5">
+                      <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-forest mb-3 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-forest"></span>
+                        Results
+                      </div>
+                      <ul className="space-y-2.5">
+                        {item.resultBullets.map((bullet) => (
+                          <li key={bullet} className="flex gap-2 text-xs md:text-sm leading-relaxed text-ink/75">
+                            <span>•</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
 

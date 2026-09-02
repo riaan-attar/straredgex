@@ -64,16 +64,20 @@ export const CaseStudies: React.FC = () => {
           </div>
         </div>
 
-        {/* Stackup Cards Container - Generous spacing allows each card to stick and subsequent cards to layer over */}
-        <div className="relative pb-6 lg:pb-10 flex flex-col">
-          {caseStudies.map((item, index) => {
+        {/* Stackup Cards Container - Streamlined spacing for smooth stacking */}
+        <div className="relative pb-4 lg:pb-6 flex flex-col">
+          {caseStudies.slice(0, 5).map((item, index, arr) => {
             const isEven = index % 2 === 0;
 
             return (
               <div
                 key={item.title}
                 id={`case-study-card-${index}`}
-                className="case-study-card-wrapper mb-12 sm:mb-16 lg:mb-20 last:mb-0"
+                className="case-study-card-wrapper sticky mb-8 sm:mb-10 lg:mb-14 last:mb-0"
+                style={{
+                  top: '110px',
+                  zIndex: index + 1,
+                }}
               >
                 <article className="group bg-white border border-border-muted rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_75px_rgba(0,0,0,0.2)] transition-all duration-500 relative">
                   
@@ -129,7 +133,7 @@ export const CaseStudies: React.FC = () => {
                             {item.category}
                           </span>
                           <span className="text-xs sm:text-sm uppercase tracking-[0.15em] font-bold text-ink/40">
-                            {String(index + 1).padStart(2, '0')} / {String(caseStudies.length).padStart(2, '0')}
+                            {String(index + 1).padStart(2, '0')} / {String(arr.length).padStart(2, '0')}
                           </span>
                         </div>
 
@@ -209,6 +213,29 @@ export const CaseStudies: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* View All Case Studies Footer Banner */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 sm:p-8 bg-forest text-bg-cream rounded-2xl border border-border-muted shadow-lg">
+          <div className="flex flex-col gap-1.5 text-left w-full sm:w-auto">
+            <div className="flex items-center gap-2 text-brand-amber text-xs font-bold uppercase tracking-[0.2em]">
+              <span className="material-symbols-outlined text-base">auto_awesome</span>
+              <span>Complete Portfolio ({caseStudies.length} Case Studies)</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+              Looking for more industry benchmarks & data?
+            </h3>
+            <p className="text-bg-cream/75 text-sm sm:text-base max-w-xl">
+              Explore all {caseStudies.length} case studies covering B2B outreach, e-commerce, meal subscriptions, and real estate.
+            </p>
+          </div>
+          <a
+            href="/case-studies"
+            className="inline-flex items-center justify-center gap-3 bg-brand-amber text-forest hover:bg-white hover:text-forest px-6 sm:px-8 py-3.5 sm:py-4 rounded-custom font-bold uppercase tracking-[0.14em] text-xs sm:text-sm transition-all duration-300 shadow-md shrink-0 w-full sm:w-auto text-center"
+          >
+            <span>View All {caseStudies.length} Case Studies</span>
+            <span className="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
         </div>
 
       </div>
