@@ -15,11 +15,16 @@ export default function AtomBulbHero() {
     let width = mount.clientWidth;
     let height = mount.clientHeight;
 
+    const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 1024;
+    const isTablet = typeof window !== 'undefined' && window.innerWidth >= 768;
+    const initialScale = isDesktop ? 1.95 : (isTablet ? 1.75 : 1.6);
+    const cameraZ = isDesktop ? 9.8 : 9.5;
+
     // ---------- Scene / camera / renderer ----------
     const scene = new THREE.Scene();
 
     const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
-    camera.position.set(0, 0, 9.5);
+    camera.position.set(0, 0, cameraZ);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
@@ -40,8 +45,8 @@ export default function AtomBulbHero() {
 
     // ---------- Root group ----------
     const root = new THREE.Group();
-    // Scale up significantly to make the bulb prominent
-    root.scale.set(1.6, 1.6, 1.6);
+    // Scale up to make the bulb prominent on desktop
+    root.scale.set(initialScale, initialScale, initialScale);
     scene.add(root);
 
     // ================= BULB (glass shell + outline) =================
@@ -225,9 +230,12 @@ export default function AtomBulbHero() {
       height = mount.clientHeight;
       if (width === 0 || height === 0) return;
       
-      // Adjust bulb size for PC vs Mobile
-      const scale = width > 768 ? 2.0 : 1.6;
+      // Adjust bulb size for Desktop vs Tablet vs Mobile
+      const isDesk = window.innerWidth >= 1024;
+      const isTab = window.innerWidth >= 768;
+      const scale = isDesk ? 1.95 : (isTab ? 1.75 : 1.6);
       root.scale.set(scale, scale, scale);
+      camera.position.z = isDesk ? 9.8 : 9.5;
 
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
@@ -316,20 +324,11 @@ export default function AtomBulbHero() {
   return (
     <div
       id="bulb-anchor"
-      style={{
-        width: '100%',
-        height: '100%',
-        minHeight: 550,
-        position: 'relative'
-      }}
+      className="w-full h-full min-h-[550px] lg:min-h-[580px] xl:min-h-[620px] relative"
     >
       <div
         ref={mountRef}
-        style={{
-          width: '100%',
-          height: '100%',
-          minHeight: 550,
-        }}
+        className="w-full h-full min-h-[550px] lg:min-h-[580px] xl:min-h-[620px]"
       />
       {/* Orbital Services */}
       <style>{`
@@ -346,7 +345,12 @@ export default function AtomBulbHero() {
         }
         @media (min-width: 768px) {
           .orbit-wrapper {
-            --radius: 240px;
+            --radius: 235px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .orbit-wrapper {
+            --radius: 268px;
           }
         }
       `}</style>

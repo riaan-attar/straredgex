@@ -183,7 +183,7 @@ export const Hero: React.FC = () => {
         <div className="absolute w-[100px] h-[100px] rounded-full bg-[radial-gradient(circle,#FFFFFF_0%,#FEBD59_65%,transparent_100%)] blur-[14px] shadow-[0_0_60px_20px_rgba(254,189,89,0.65)]" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1.1fr,490px] xl:grid-cols-[1.2fr,510px] gap-14 lg:gap-8 xl:gap-12 w-full items-center relative z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-[1.05fr,540px] xl:grid-cols-[1.12fr,580px] gap-14 lg:gap-8 xl:gap-12 w-full items-center relative z-10">
         
         {/* Left Content Block */}
         <div 
@@ -268,7 +268,7 @@ export const Hero: React.FC = () => {
           {/* Decorative Card with Bulb */}
           <div 
             ref={cardRef} 
-            className="relative w-full max-w-[510px] rounded-custom overflow-visible group/bulb-card"
+            className="relative w-full max-w-[580px] rounded-custom overflow-visible group/bulb-card"
           >
             {/* Top Left Plus on Card */}
             <div className="absolute -top-[8px] -left-[8px] z-20">
