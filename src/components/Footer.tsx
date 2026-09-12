@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
           <p>© {new Date().getFullYear()} StratedgeX Performance Agency. All rights reserved.</p>
           
           <div className="flex items-center gap-2 font-medium">
-            <span>Developed with precision by</span>
+            <span>Developed by</span>
             <a
               href="https://riaanattar.dev"
               target="_blank"
@@ -56,10 +56,10 @@ export const Footer: React.FC = () => {
             </a>
           </div>
 
-          <div className="flex gap-8">
+          {/* <div className="flex gap-8">
             <a href="#" className="hover:text-brand-amber transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-brand-amber transition-colors">Terms of Service</a>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom Left Plus */}

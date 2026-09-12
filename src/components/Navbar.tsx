@@ -78,10 +78,10 @@ export const Navbar: React.FC = () => {
           
           {/* Brand Section */}
           <div className="flex items-center h-full border-r border-border-muted shrink-0 relative bg-bg-cream">
-            <a href="/" className="flex items-center h-full group overflow-hidden px-3 sm:px-5 md:px-7 py-1" aria-label="StratedgeX Home">
+            <a href="/" className="flex items-center h-full group overflow-hidden p-0" aria-label="StratedgeX Home">
               <Logo 
-                className="h-full flex items-center"
-                imgClassName="h-full max-h-[62px] md:max-h-[68px] w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+                className="h-full flex items-center justify-center"
+                imgClassName="h-full w-auto max-h-full object-contain transition-transform duration-300 group-hover:scale-105" 
               />
             </a>
             <div className="absolute -bottom-[8px] -left-[8px] z-10 pointer-events-none">

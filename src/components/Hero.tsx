@@ -243,22 +243,6 @@ export const Hero: React.FC = () => {
                 </svg>
                 <span className="font-bold text-[20px] md:text-[25px] tracking-tight -ml-1">Meta</span>
               </div>
-
-              {/* Google Partner */}
-              <div className="flex items-center gap-3.5 text-ink">
-                <div className="w-[7px] h-[36px] bg-[#4285F4] rounded-[2px]"></div>
-                <div className="flex flex-col justify-center h-full">
-                  <span className="text-[12px] font-extrabold tracking-[0.05em] leading-none mb-1">
-                    <span className="text-[#4285F4]">G</span>
-                    <span className="text-[#EA4335]">o</span>
-                    <span className="text-[#FBBC05]">o</span>
-                    <span className="text-[#4285F4]">g</span>
-                    <span className="text-[#34A853]">l</span>
-                    <span className="text-[#EA4335]">e</span>
-                  </span>
-                  <span className="font-bold text-[20px] md:text-[25px] tracking-tight leading-none text-ink/80">Partner</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
