@@ -45,6 +45,7 @@ const menuData: Record<'strategy' | 'capabilities', MenuContent> = {
       { label: "Google Ads Management", href: "#capabilities" },
       { label: "Meta Ads Management", href: "#capabilities" },
       { label: "Landing Page Dev", href: "#contact-form-section" },
+      { label: "SEO & Organic Growth", href: "#capabilities" },
       { label: "Email Marketing", href: "#contact-form-section" },
     ],
     c2t: "Integration",

@@ -14,13 +14,15 @@ interface CapabilityCardProps {
 
 const CapabilityCard: React.FC<CapabilityCardProps> = ({ icon, title, description }) => {
   return (
-    <div className="capability-card bg-bg-cream p-10 hover:bg-forest transition-all duration-500 group relative">
+    <div className="capability-card bg-bg-cream p-8 xl:p-10 hover:bg-forest transition-all duration-500 group relative flex flex-col justify-between">
       <div className="absolute top-[8px] right-[8px] opacity-0 group-hover:opacity-100 transition-opacity">
         <PlusIcon />
       </div>
-      <span className="material-symbols-outlined text-4xl text-rust group-hover:text-brand-amber mb-8 transition-colors">{icon}</span>
-      <h3 className="text-2xl font-bold text-ink group-hover:text-brand-amber mb-4 tracking-tight transition-colors">{title}</h3>
-      <p className="text-ink/70 group-hover:text-bg-cream/80 leading-relaxed transition-colors">{description}</p>
+      <div>
+        <span className="material-symbols-outlined text-4xl text-rust group-hover:text-brand-amber mb-8 transition-colors">{icon}</span>
+        <h3 className="text-2xl font-bold text-ink group-hover:text-brand-amber mb-4 tracking-tight transition-colors">{title}</h3>
+        <p className="text-ink/70 group-hover:text-bg-cream/80 leading-relaxed transition-colors">{description}</p>
+      </div>
     </div>
   );
 };
@@ -92,6 +94,11 @@ export const Capabilities: React.FC = () => {
       description: "Custom, high-speed landing pages engineered specifically for maximum conversion rates."
     },
     {
+      icon: "query_stats",
+      title: "SEO",
+      description: "High-intent organic search optimization and technical architecture to capture compounding inbound demand."
+    },
+    {
       icon: "mail",
       title: "Email Marketing",
       description: "High-converting lifecycle flows and newsletter strategies designed to maximize customer lifetime value."
@@ -116,7 +123,7 @@ export const Capabilities: React.FC = () => {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border-muted border border-border-muted rounded-custom overflow-hidden shadow-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-px bg-border-muted border border-border-muted rounded-custom overflow-hidden shadow-sm">
           {capabilities.map((item, index) => (
             <CapabilityCard
               key={index}

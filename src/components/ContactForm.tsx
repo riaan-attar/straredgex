@@ -163,6 +163,7 @@ export const ContactForm: React.FC = () => {
                   <option value="Strategy Audit">Structural Strategy Audit</option>
                   <option value="Brand Engineering">Brand Engineering</option>
                   <option value="Performance Media">Performance Media / ROAS</option>
+                  <option value="SEO & Organic Search">SEO & Organic Search</option>
                   <option value="Revenue Operations">Revenue Operations Integration</option>
                 </select>
               </div>
