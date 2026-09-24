@@ -188,7 +188,7 @@ export const Hero: React.FC = () => {
         {/* Left Content Block */}
         <div 
           ref={textBlockRef} 
-          className="flex flex-col gap-[40px] md:gap-[50px] max-w-[920px] relative"
+          className="flex flex-col gap-[40px] md:gap-[50px] max-w-[920px] relative z-10"
         >
           <div className="flex flex-col gap-6 relative">
             <div className="flex items-center gap-3.5">
@@ -248,19 +248,19 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Right Content Block */}
-        <div className="relative flex flex-col justify-end items-center h-full mt-8 lg:mt-0">
+        <div className="relative flex flex-col justify-end items-center h-full mt-8 lg:mt-0 z-20 pointer-events-auto">
           {/* Decorative Card with Bulb */}
           <div 
             ref={cardRef} 
-            className="relative w-full max-w-[580px] rounded-custom overflow-visible group/bulb-card"
+            className="relative w-full max-w-[580px] rounded-custom overflow-visible group/bulb-card z-20"
           >
             {/* Top Left Plus on Card */}
-            <div className="absolute -top-[8px] -left-[8px] z-20">
+            <div className="absolute -top-[8px] -left-[8px] z-30">
               <PlusIcon />
             </div>
 
             {/* Bulb Canvas Container */}
-            <div className="relative w-full h-full flex items-center justify-center z-10">
+            <div className="relative w-full h-full flex items-center justify-center z-20">
               <AtomBulbHero />
             </div>
           </div>

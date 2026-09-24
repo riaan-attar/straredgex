@@ -23,7 +23,7 @@ export default function AtomBulbHero() {
     // ---------- Scene / camera / renderer ----------
     const scene = new THREE.Scene();
 
-    const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
+    const camera = new THREE.PerspectiveCamera(46, width / height, 0.1, 100);
     camera.position.set(0, 0, cameraZ);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -184,19 +184,23 @@ export default function AtomBulbHero() {
     // ================= Rays =================
     const rayGroup = new THREE.Group();
     const rayCount = 12;
+    const startAngle = -0.3; // ~ -17 degrees
+    const endAngle = Math.PI + 0.3; // ~ 197 degrees
     for (let i = 0; i < rayCount; i++) {
-      const angle = (i / rayCount) * Math.PI * 2;
-      const rayGeo = new THREE.CylinderGeometry(0.015, 0.015, 0.8, 6);
+      const angle = startAngle + (i / (rayCount - 1)) * (endAngle - startAngle);
+      const rayGeo = new THREE.CylinderGeometry(0.018, 0.024, 0.38, 8);
       const rayMat = new THREE.MeshBasicMaterial({
-        color: ACCENT_STROKE,
+        color: i % 2 === 0 ? ACCENT : ACCENT_STROKE,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.9,
+        depthWrite: false,
       });
       const ray = new THREE.Mesh(rayGeo, rayMat);
-      const dist = 2.4;
-      // Center rays around the bulb's top sphere
-      ray.position.set(Math.cos(angle) * dist, 0.6 + Math.sin(angle) * dist * 0.7, 0);
-      ray.rotation.z = angle + Math.PI / 2;
+      ray.renderOrder = 10;
+      const dist = 1.32;
+      // Center rays radiating outward from the bulb's upper sphere
+      ray.position.set(Math.cos(angle) * dist, 0.85 + Math.sin(angle) * dist, 0);
+      ray.rotation.z = angle - Math.PI / 2;
       rayGroup.add(ray);
     }
     root.add(rayGroup);
@@ -276,12 +280,14 @@ export default function AtomBulbHero() {
       root.rotation.y = autoOscillation + targetRotation.y;
       root.rotation.x = targetRotation.x;
       // Hover vertically slightly
-      root.position.y = -0.2 + Math.sin(elapsed * 1.2) * 0.05;
+      root.position.y = -0.28 + Math.sin(elapsed * 1.2) * 0.05;
 
       rayGroup.children.forEach((ray, i) => {
         const mesh = ray as THREE.Mesh;
-        const opacityBoost = isHovering ? 0.3 : 0;
-        (mesh.material as THREE.MeshBasicMaterial).opacity = 0.5 + opacityBoost + Math.sin(elapsed * 3 + i) * 0.5;
+        const opacityBoost = isHovering ? 0.25 : 0;
+        const pulse = Math.sin(elapsed * 2.8 + i * 0.7);
+        (mesh.material as THREE.MeshBasicMaterial).opacity = 0.65 + opacityBoost + pulse * 0.35;
+        mesh.scale.y = 1 + pulse * 0.12;
       });
 
       nucleus.scale.setScalar(1 + (isHovering ? 0.2 : 0) + Math.sin(elapsed * 3) * 0.05);
