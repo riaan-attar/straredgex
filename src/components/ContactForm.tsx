@@ -89,7 +89,7 @@ export const ContactForm: React.FC = () => {
           <div className="flex flex-col gap-4 text-ink font-medium mt-4">
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-rust">mail</span>
-              <span>partnerships@stratedgex.io</span>
+              <span>partnerships@stratedgex.co</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-rust">location_on</span>

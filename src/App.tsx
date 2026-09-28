@@ -54,6 +54,38 @@ export const App: React.FC = () => {
   const cleanPath = pathname.toLowerCase().replace(/\/+$/, '');
   const isCaseStudiesPage = cleanPath === '/case-studies' || cleanPath === '/case-study' || cleanPath === '/portfolio';
 
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+
+    if (isCaseStudiesPage) {
+      document.title = 'Performance Marketing Case Studies & ROI Benchmarks | StratedgeX';
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute(
+          'content',
+          'Explore in-depth performance marketing case studies across B2B outreach, e-commerce, real estate, and direct response advertising scaling ROAS and lowering acquisition costs.'
+        );
+      }
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) {
+        canonical.setAttribute('href', 'https://www.stratedgex.co/case-studies');
+      }
+    } else {
+      document.title = 'StratedgeX | High-ROI Performance Marketing Agency | Google & Meta Ads, CRO & Growth Architecture';
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute(
+          'content',
+          'StratedgeX is an elite performance marketing agency engineering high-converting growth systems. We scale Google Ads, Meta Ads, and bespoke CRO landing pages to deliver predictable, compounding revenue and reduced acquisition costs.'
+        );
+      }
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) {
+        canonical.setAttribute('href', 'https://www.stratedgex.co/');
+      }
+    }
+  }, [isCaseStudiesPage]);
+
   return (
     <CurrencyProvider>
       <div className="font-primary bg-neutral-background text-text-primary overflow-x-clip min-h-screen flex flex-col w-full relative">

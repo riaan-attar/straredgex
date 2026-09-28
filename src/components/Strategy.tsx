@@ -64,8 +64,11 @@ export const Strategy: React.FC = () => {
           <div className="w-full aspect-[4/3] max-h-[340px] sm:max-h-[380px] bg-white border border-border-muted rounded-custom p-3 sm:p-4 relative shadow-sm">
             <img 
               src="https://images.pexels.com/photos/8837715/pexels-photo-8837715.jpeg?w=1000&h=1000&fit=crop" 
-              alt="Strategy Blueprint" 
+              alt="StratedgeX Growth Architecture and Performance Marketing Strategy Blueprint" 
               className="w-full h-full object-cover rounded-custom opacity-85"
+              loading="lazy"
+              width={800}
+              height={600}
             />
             {/* Floating Plus Icons */}
             <div className="absolute -top-[8px] -right-[8px]"><PlusIcon /></div>

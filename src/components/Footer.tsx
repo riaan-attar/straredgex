@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-brand-amber text-base">mail</span>
-                <a href="mailto:partnerships@stratedgex.io" className="hover:text-brand-amber transition-colors">partnerships@stratedgex.io</a>
+                <a href="mailto:partnerships@stratedgex.co" className="hover:text-brand-amber transition-colors">partnerships@stratedgex.co</a>
               </li>
               <li className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-brand-amber text-base">call</span>

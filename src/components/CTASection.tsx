@@ -47,7 +47,7 @@ export const CTASection: React.FC = () => {
 
         <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto relative z-10">
           <a 
-            href="mailto:partners@stratedgex.io" 
+            href="mailto:partners@stratedgex.co" 
             className="bg-brand-amber text-forest px-10 h-16 rounded-custom flex items-center justify-center text-xl font-bold tracking-cta hover:bg-white transition-all duration-300 shadow-lg"
           >
             Inquire for Partnership
