@@ -11,6 +11,10 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
+    question: "Who leads the strategy and performance architecture at StratedgeX?",
+    answer: "StratedgeX is founded and led by Riaan Attar, a lead growth architect and full-stack developer. Every growth system, paid ad framework across Google and Meta, and high-converting landing page is engineered with direct founder oversight and rigorous data benchmarks."
+  },
+  {
     question: "What ad budget do you recommend starting with?",
     answer: (spend: string) => `We typically partner with brands spending a minimum of ${spend} across Google and Meta. This provides enough data velocity for our testing protocols to quickly identify profitable scaling opportunities.`
   },

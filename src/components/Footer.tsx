@@ -85,12 +85,13 @@ export const Footer: React.FC = () => {
           <p>© {new Date().getFullYear()} StratedgeX Performance Agency. All rights reserved.</p>
           
           <div className="flex items-center gap-2 font-medium">
-            <span>Developed by</span>
+            <span>Founded & Developed by</span>
             <a
               href="https://riaanattar.dev"
               target="_blank"
               rel="noopener noreferrer"
               className="text-brand-amber font-bold tracking-wide hover:underline hover:text-white transition-colors"
+              title="Riaan Attar - Founder, Growth Architect & Full Stack Developer"
             >
               Riaan Attar
             </a>

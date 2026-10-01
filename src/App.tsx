@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import LogoCloud from './components/LogoCloud';
@@ -63,7 +64,7 @@ export const App: React.FC = () => {
       if (metaDesc) {
         metaDesc.setAttribute(
           'content',
-          'Explore in-depth performance marketing case studies across B2B outreach, e-commerce, real estate, and direct response advertising scaling ROAS and lowering acquisition costs.'
+          'Explore in-depth performance marketing case studies by StratedgeX and founder Riaan Attar across B2B outreach, e-commerce, real estate, and direct response advertising scaling ROAS and lowering acquisition costs.'
         );
       }
       const canonical = document.querySelector('link[rel="canonical"]');
@@ -76,7 +77,7 @@ export const App: React.FC = () => {
       if (metaDesc) {
         metaDesc.setAttribute(
           'content',
-          'StratedgeX is an elite performance marketing agency engineering high-converting growth systems. We scale Google Ads, Meta Ads, and bespoke CRO landing pages to deliver predictable, compounding revenue and reduced acquisition costs.'
+          'StratedgeX, founded by Riaan Attar, is an elite performance marketing agency engineering high-converting growth systems. We scale Google Ads, Meta Ads, and bespoke CRO landing pages to deliver predictable, compounding revenue and reduced acquisition costs.'
         );
       }
       const canonical = document.querySelector('link[rel="canonical"]');
@@ -89,6 +90,7 @@ export const App: React.FC = () => {
   return (
     <CurrencyProvider>
       <div className="font-primary bg-neutral-background text-text-primary overflow-x-clip min-h-screen flex flex-col w-full relative">
+      <Analytics />
       <CustomCursor />
       <ScrollToTop />
       <SwarmCursor
