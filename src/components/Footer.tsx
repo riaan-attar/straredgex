@@ -40,8 +40,9 @@ export const Footer: React.FC = () => {
             <ul className="flex flex-col gap-3 text-bg-cream/80 text-[15px]">
               <li><a href={sectionHref('#strategy')} className="hover:text-brand-amber hover:translate-x-1 inline-block transition-all text-bg-cream">Our Strategy</a></li>
               <li><a href={sectionHref('#capabilities')} className="hover:text-brand-amber hover:translate-x-1 inline-block transition-all text-bg-cream">Capabilities</a></li>
-              <li><a href={sectionHref('#impact')} className="hover:text-brand-amber hover:translate-x-1 inline-block transition-all text-bg-cream">Impact Studies</a></li>
+              <li><a href={sectionHref('#impact')} className="hover:text-brand-amber hover:translate-x-1 inline-block transition-all text-bg-cream">Measured Outcomes</a></li>
               <li><a href={sectionHref('#case-studies')} className="hover:text-brand-amber hover:translate-x-1 inline-block transition-all text-bg-cream">Case Studies</a></li>
+              <li><a href={sectionHref('#testimonials')} className="hover:text-brand-amber hover:translate-x-1 inline-block transition-all text-bg-cream">Client Reviews</a></li>
               <li><a href={sectionHref('#faq')} className="hover:text-brand-amber hover:translate-x-1 inline-block transition-all text-bg-cream">Common Inquiries (FAQ)</a></li>
               <li><a href={sectionHref('#contact-form-section')} className="hover:text-brand-amber hover:translate-x-1 inline-block transition-all text-bg-cream">Inquire Now</a></li>
             </ul>
@@ -74,7 +75,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-brand-amber text-base">call</span>
-                <span>+44 20 7946 0123</span>
+                <a href="tel:+919152253699" className="hover:text-brand-amber transition-colors">+91 9152253699</a>
               </li>
             </ul>
           </div>

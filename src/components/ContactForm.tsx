@@ -11,7 +11,9 @@ export const ContactForm: React.FC = () => {
     inquiryType: 'Strategy Audit',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   
   const containerRef = useRef<HTMLDivElement>(null);
   const infoRef = useRef<HTMLDivElement>(null);
@@ -49,20 +51,49 @@ export const ContactForm: React.FC = () => {
     );
   }, { scope: containerRef });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate submission
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: '',
-        company: '',
-        email: '',
-        inquiryType: 'Strategy Audit',
-        message: ''
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '6960654d-0a42-4faf-b031-6a8ab56e0b59',
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          inquiry_type: formData.inquiryType,
+          message: formData.message,
+          subject: `New Lead: ${formData.name} (${formData.company || 'Direct Inquiry'}) - StratedgeX`,
+          from_name: 'StratedgeX Leads Desk',
+        }),
       });
-    }, 3000);
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({
+          name: '',
+          company: '',
+          email: '',
+          inquiryType: 'Strategy Audit',
+          message: '',
+        });
+      } else {
+        setErrorMessage(result.message || 'Something went wrong. Please try again or reach out via email.');
+      }
+    } catch (error) {
+      console.error('Web3Forms submission error:', error);
+      setErrorMessage('Unable to send your inquiry at this moment. Please check your network or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -89,7 +120,11 @@ export const ContactForm: React.FC = () => {
           <div className="flex flex-col gap-4 text-ink font-medium mt-4">
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-rust">mail</span>
-              <span>partnerships@stratedgex.co</span>
+              <a href="mailto:partnerships@stratedgex.co" className="hover:text-rust transition-colors">partnerships@stratedgex.co</a>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-rust">call</span>
+              <a href="tel:+919152253699" className="hover:text-rust transition-colors">+91 9152253699</a>
             </div>
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-rust">location_on</span>
@@ -110,16 +145,38 @@ export const ContactForm: React.FC = () => {
               <span className="material-symbols-outlined text-6xl text-forest animate-bounce">check_circle</span>
               <h3 className="text-2xl font-bold text-ink">Inquiry Received</h3>
               <p className="text-ink/70 max-w-sm">
-                Our strategic operations desk will review your details and reach out within 24 business hours.
+                Our strategic operations desk has received your submission and will review your details within 24 business hours.
               </p>
+              <button
+                type="button"
+                onClick={() => setSubmitted(false)}
+                className="mt-4 text-xs font-bold uppercase tracking-wider text-rust hover:text-forest transition-colors underline"
+              >
+                Send Another Inquiry
+              </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            <form 
+              onSubmit={handleSubmit} 
+              action="https://api.web3forms.com/submit" 
+              method="POST" 
+              className="flex flex-col gap-6"
+            >
+              <input type="hidden" name="access_key" value="6960654d-0a42-4faf-b031-6a8ab56e0b59" />
+              
+              {errorMessage && (
+                <div className="p-4 bg-red-50 border border-red-200 text-red-700 text-sm rounded-custom flex items-center gap-2">
+                  <span className="material-symbols-outlined text-base">error</span>
+                  <span>{errorMessage}</span>
+                </div>
+              )}
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="text-[11px] font-bold uppercase tracking-wider text-ink/70">Full Name</label>
                   <input 
                     type="text" 
+                    name="name"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -131,6 +188,7 @@ export const ContactForm: React.FC = () => {
                   <label className="text-[11px] font-bold uppercase tracking-wider text-ink/70">Company Name</label>
                   <input 
                     type="text" 
+                    name="company"
                     required
                     value={formData.company}
                     onChange={(e) => setFormData({...formData, company: e.target.value})}
@@ -144,6 +202,7 @@ export const ContactForm: React.FC = () => {
                 <label className="text-[11px] font-bold uppercase tracking-wider text-ink/70">Work Email</label>
                 <input 
                   type="email" 
+                  name="email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -155,6 +214,7 @@ export const ContactForm: React.FC = () => {
               <div className="flex flex-col gap-2">
                 <label className="text-[11px] font-bold uppercase tracking-wider text-ink/70">Inquiry Focus</label>
                 <select 
+                  name="inquiry_type"
                   value={formData.inquiryType}
                   onChange={(e) => setFormData({...formData, inquiryType: e.target.value})}
                   className="border border-border-muted rounded-custom px-4 py-3 bg-bg-cream focus:bg-white focus:outline-none focus:border-rust text-ink transition-colors text-sm cursor-pointer appearance-none"
@@ -171,6 +231,7 @@ export const ContactForm: React.FC = () => {
               <div className="flex flex-col gap-2">
                 <label className="text-[11px] font-bold uppercase tracking-wider text-ink/70">Message / Growth Friction Points</label>
                 <textarea 
+                  name="message"
                   required
                   rows={4}
                   value={formData.message}
@@ -182,10 +243,13 @@ export const ContactForm: React.FC = () => {
 
               <button 
                 type="submit" 
-                className="w-full bg-brand-amber text-forest hover:bg-forest hover:text-brand-amber border border-border-muted rounded-custom flex items-center justify-center gap-3 h-14 transition-all duration-300 font-bold uppercase tracking-wider text-sm mt-2 shadow-md"
+                disabled={isSubmitting}
+                className="w-full bg-brand-amber text-forest hover:bg-forest hover:text-brand-amber border border-border-muted rounded-custom flex items-center justify-center gap-3 h-14 transition-all duration-300 font-bold uppercase tracking-wider text-sm mt-2 shadow-md disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <span>Submit Inquiry</span>
-                <span className="material-symbols-outlined text-lg">arrow_forward</span>
+                <span>{isSubmitting ? 'Transmitting Details...' : 'Submit Inquiry'}</span>
+                <span className="material-symbols-outlined text-lg">
+                  {isSubmitting ? 'sync' : 'arrow_forward'}
+                </span>
               </button>
             </form>
           )}

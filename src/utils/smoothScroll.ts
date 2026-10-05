@@ -43,8 +43,17 @@ export const initSmoothScroll = () => {
     if (!anchor) return;
 
     const href = anchor.getAttribute('href');
-    if (href && href.startsWith('#') && href.length > 1) {
-      const targetElement = document.querySelector(href);
+    if (!href) return;
+
+    let selector = '';
+    if (href.startsWith('#') && href.length > 1) {
+      selector = href;
+    } else if (href.startsWith('/#') && href.length > 2 && (window.location.pathname === '/' || window.location.pathname === '')) {
+      selector = href.substring(1);
+    }
+
+    if (selector) {
+      const targetElement = document.querySelector(selector);
       if (targetElement) {
         e.preventDefault();
         lenis.scrollTo(targetElement as HTMLElement, {
@@ -57,6 +66,24 @@ export const initSmoothScroll = () => {
   };
 
   document.addEventListener('click', handleAnchorClick);
+
+  // Auto-scroll on initial load if hash is present
+  if (window.location.hash) {
+    setTimeout(() => {
+      try {
+        const targetElement = document.querySelector(window.location.hash);
+        if (targetElement) {
+          lenis.scrollTo(targetElement as HTMLElement, {
+            offset: -40,
+            duration: 1.2,
+            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          });
+        }
+      } catch (err) {
+        console.warn('Invalid hash selector:', err);
+      }
+    }, 300);
+  }
 
   return lenis;
 };
