@@ -64,14 +64,14 @@ export const ContactForm: React.FC = () => {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          access_key: '6960654d-0a42-4faf-b031-6a8ab56e0b59',
+          access_key: '1f5ef797-9188-4a69-bc57-31397ca054cb',
           name: formData.name,
           email: formData.email,
           company: formData.company,
           inquiry_type: formData.inquiryType,
           message: formData.message,
-          subject: `New Lead: ${formData.name} (${formData.company || 'Direct Inquiry'}) - StratedgeX`,
-          from_name: 'StratedgeX Leads Desk',
+          subject: `New Lead: ${formData.name} (${formData.company || 'Direct Inquiry'}) - Footfall Metrics Design`,
+          from_name: 'Footfall Metrics Design Lead Desk',
         }),
       });
 
@@ -120,7 +120,7 @@ export const ContactForm: React.FC = () => {
           <div className="flex flex-col gap-4 text-ink font-medium mt-4">
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-rust">mail</span>
-              <a href="mailto:partnerships@stratedgex.co" className="hover:text-rust transition-colors">partnerships@stratedgex.co</a>
+              <a href="mailto:partnerships@footfallmetrics.in" className="hover:text-rust transition-colors">partnerships@footfallmetrics.in</a>
             </div>
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-rust">call</span>
@@ -162,7 +162,7 @@ export const ContactForm: React.FC = () => {
               method="POST" 
               className="flex flex-col gap-6"
             >
-              <input type="hidden" name="access_key" value="6960654d-0a42-4faf-b031-6a8ab56e0b59" />
+              <input type="hidden" name="access_key" value="1f5ef797-9188-4a69-bc57-31397ca054cb" />
               
               {errorMessage && (
                 <div className="p-4 bg-red-50 border border-red-200 text-red-700 text-sm rounded-custom flex items-center gap-2">

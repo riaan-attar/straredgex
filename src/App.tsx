@@ -59,30 +59,30 @@ export const App: React.FC = () => {
     if (typeof document === 'undefined') return;
 
     if (isCaseStudiesPage) {
-      document.title = 'Performance Marketing Case Studies & ROI Benchmarks | StratedgeX';
+      document.title = 'Web Design & Performance Case Studies | Footfall Metrics Design';
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
         metaDesc.setAttribute(
           'content',
-          'Explore in-depth performance marketing case studies by StratedgeX and founder Riaan Attar across B2B outreach, e-commerce, real estate, and direct response advertising scaling ROAS and lowering acquisition costs.'
+          'Explore in-depth design, 3D web, and conversion rate optimization (CRO) case studies by Footfall Metrics Design Studio scaling ROAS and lowering acquisition costs.'
         );
       }
       const canonical = document.querySelector('link[rel="canonical"]');
       if (canonical) {
-        canonical.setAttribute('href', 'https://www.stratedgex.co/case-studies');
+        canonical.setAttribute('href', 'https://design.footfallmetrics.in/case-studies');
       }
     } else {
-      document.title = 'StratedgeX | High-ROI Performance Marketing Agency | Google & Meta Ads, CRO & Growth Architecture';
+      document.title = 'Footfall Metrics Design | High-Converting Web Design, CRO & Growth Architecture';
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
         metaDesc.setAttribute(
           'content',
-          'StratedgeX, founded by Riaan Attar, is an elite performance marketing agency engineering high-converting growth systems. We scale Google Ads, Meta Ads, and bespoke CRO landing pages to deliver predictable, compounding revenue and reduced acquisition costs.'
+          'Footfall Metrics Design Studio, founded by Riaan Attar, is an elite performance design and conversion rate optimization (CRO) agency engineering bespoke high-speed landing pages, 3D web experiences, and paid acquisition growth systems.'
         );
       }
       const canonical = document.querySelector('link[rel="canonical"]');
       if (canonical) {
-        canonical.setAttribute('href', 'https://www.stratedgex.co/');
+        canonical.setAttribute('href', 'https://design.footfallmetrics.in/');
       }
     }
   }, [isCaseStudiesPage]);

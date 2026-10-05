@@ -2,24 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.stratedgex.co/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <loc>https://design.footfallmetrics.in/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.stratedgex.co/og-image.jpg</image:loc>
-      <image:title>StratedgeX Performance Marketing Agency</image:title>
-      <image:caption>High-ROI Performance Marketing Systems for Google Ads, Meta Ads and CRO</image:caption>
+      <image:loc>https://design.footfallmetrics.in/og-image.jpg</image:loc>
+      <image:title>Footfall Metrics Design Studio</image:title>
+      <image:caption>High-Performance Web Design, 3D Experiences and CRO Growth Architecture</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://www.stratedgex.co/logo.png</image:loc>
-      <image:title>StratedgeX Performance Marketing Agency Logo</image:title>
-      <image:caption>High-ROI Performance Marketing Systems</image:caption>
+      <image:loc>https://design.footfallmetrics.in/logo.png</image:loc>
+      <image:title>Footfall Metrics Design Studio Logo</image:title>
+      <image:caption>High-Converting Web Design and Digital Systems</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://www.stratedgex.co/case-studies</loc>
-    <lastmod>2026-10-01</lastmod>
+    <loc>https://design.footfallmetrics.in/case-studies</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
