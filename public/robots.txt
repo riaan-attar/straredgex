@@ -1,6 +1,6 @@
 # ==============================================================================
-# Footfall Metrics Design Studio Robots Configuration
-# Website: https://design.footfallmetrics.in
+# StratedgeX Robots Configuration
+# Website: https://www.stratedgex.co
 # Description: Search engine crawling rules for optimal Google & Bing SERP ranking
 # ==============================================================================
 
@@ -14,7 +14,7 @@ Allow: /favicon.png
 Allow: /logo.png
 
 # Sitemaps
-Sitemap: https://design.footfallmetrics.in/sitemap.xml
+Sitemap: https://www.stratedgex.co/sitemap.xml
 
 # Specific Crawlers
 User-agent: Googlebot
@@ -43,4 +43,4 @@ User-agent: DuckDuckBot
 Allow: /
 
 # Host
-Host: https://design.footfallmetrics.in
+Host: https://www.stratedgex.co
