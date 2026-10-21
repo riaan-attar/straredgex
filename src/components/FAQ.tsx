@@ -11,8 +11,12 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "Who leads the strategy and performance architecture at StratedgeX?",
-    answer: "StratedgeX is founded and led by Riaan Attar, a lead growth architect and full-stack developer. Every growth system, paid ad framework across Google and Meta, and high-converting landing page is engineered with direct founder oversight and rigorous data benchmarks."
+    question: "What is StratedgeX and what services do you provide?",
+    answer: "StratedgeX is an elite performance marketing agency engineering high-converting growth systems. We scale Google Ads, Meta Ads (Facebook & Instagram), bespoke conversion rate optimization (CRO) landing pages, and automated lead generation systems for high-growth brands."
+  },
+  {
+    question: "Who founded and leads performance architecture at StratedgeX?",
+    answer: "StratedgeX was founded and is led by Riaan Attar, a growth architect and full-stack developer who oversees paid media strategy, conversion rate optimization (CRO) engineering, and scalable data infrastructure."
   },
   {
     question: "What ad budget do you recommend starting with?",
@@ -92,8 +96,8 @@ export const FAQ: React.FC = () => {
             Everything you need to know about our methodology, engagement models, and strategic integration.
           </p>
           <div className="pt-8">
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="inline-flex items-center gap-2 text-rust font-bold uppercase tracking-widest border-b-2 border-rust pb-1 hover:text-forest hover:border-forest transition-all"
             >
               Still curious? Contact us
@@ -107,25 +111,25 @@ export const FAQ: React.FC = () => {
           {faqData.map((item, index) => {
             const isOpen = openIndex === index;
             return (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`faq-item group border-b border-border-muted overflow-hidden transition-all duration-300 ${isOpen ? 'faq-open bg-border-muted/30' : 'hover:bg-border-muted/20'}`}
               >
-                <button 
+                <button
                   onClick={() => toggleIndex(index)}
                   className="faq-trigger w-full flex items-center justify-between py-8 px-4 text-left focus:outline-none"
                 >
                   <span className="text-xl md:text-2xl font-bold text-ink tracking-tight pr-8">
                     {item.question}
                   </span>
-                  <span 
+                  <span
                     className="material-symbols-outlined text-rust transition-transform duration-300 faq-icon"
                     style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
                   >
                     {isOpen ? 'remove' : 'add'}
                   </span>
                 </button>
-                <div 
+                <div
                   className="faq-content transition-all duration-500 ease-in-out overflow-hidden px-4"
                   style={{
                     maxHeight: isOpen ? '1000px' : '0px',

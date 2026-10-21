@@ -24,8 +24,8 @@ export const Footer: React.FC = () => {
               Engineering high-converting performance marketing systems for ambitious brands.
             </p>
             <div className="mt-2">
-              <a 
-                href={sectionHref('#contact-form-section')} 
+              <a
+                href={sectionHref('#contact-form-section')}
                 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-amber hover:text-white transition-colors"
               >
                 <span>Initiate Strategic Audit</span>
@@ -80,11 +80,11 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        
+
         {/* Footer Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-border-muted/30 gap-6 text-sm text-bg-cream/70">
           <p>© {new Date().getFullYear()} StratedgeX Performance Agency. All rights reserved.</p>
-          
+
           <div className="flex items-center gap-2 font-medium">
             <span>Founded & Developed by</span>
             <a

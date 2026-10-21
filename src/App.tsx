@@ -64,7 +64,7 @@ export const App: React.FC = () => {
       if (metaDesc) {
         metaDesc.setAttribute(
           'content',
-          'Explore in-depth performance marketing case studies by StratedgeX across B2B outreach, e-commerce, real estate, and direct response advertising scaling ROAS and lowering acquisition costs.'
+          'Explore in-depth performance marketing case studies by StratedgeX across Google Ads, Meta Ads scaling, B2B lead generation, e-commerce ROAS, and custom CRO landing page architecture.'
         );
       }
       const canonical = document.querySelector('link[rel="canonical"]');

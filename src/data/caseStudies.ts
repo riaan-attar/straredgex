@@ -228,7 +228,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Miya Kebabs",
     category: "QSR / Store Visits",
     image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80",
-    summary: "Executed hyper-local store visit campaigns combined with Reelo CRM automation to drive massive walk-in footfall across 4 outlets.",
+    summary: "Executed hyper-local store visit campaigns combined with Reelo CRM automation to drive massive in-store customer visits across 4 outlets.",
     headline: "₹1 Crore+ Monthly Revenue Per Outlet at ₹50–₹100 Per Visit",
     metricBadge: "₹1 Cr+ / Month",
     icon: "restaurant",
@@ -256,7 +256,7 @@ export const caseStudies: CaseStudy[] = [
       "Monthly revenue surpassed ₹1 crore per outlet.",
       "Repeat customer rate grew significantly via automated CRM remarketing."
     ],
-    cta: "Footfall + repeat revenue",
+    cta: "Store visits + repeat revenue",
   },
   {
     title: "The Saatvik Box",
