@@ -16,7 +16,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: "Who founded and leads performance architecture at StratedgeX?",
-    answer: "StratedgeX was founded and is led by Riaan Attar, a growth architect and full-stack developer who oversees paid media strategy, conversion rate optimization (CRO) engineering, and scalable data infrastructure."
+    answer: "StratedgeX was founded and is led by Amit Gole, a performance marketing specialist directing paid acquisition strategy and media scaling. The web engineering, digital infrastructure, and bespoke high-speed landing pages are developed by Riaan Attar."
   },
   {
     question: "What ad budget do you recommend starting with?",
